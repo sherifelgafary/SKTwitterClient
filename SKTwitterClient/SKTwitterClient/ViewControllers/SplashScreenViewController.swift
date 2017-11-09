@@ -10,9 +10,11 @@ import UIKit
 
 class SplashScreenViewController: UIViewController {
 
+    @IBOutlet weak var twitterIconImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
-
+    
 }

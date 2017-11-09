@@ -1,10 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eSi-x7-KvL">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Splash Screen View Controller-->
+        <scene sceneID="wDA-JX-MWx">
+            <objects>
+                <viewController storyboardIdentifier="SplashScreenViewController" id="eSi-x7-KvL" customClass="SplashScreenViewController" customModule="SKTwitterClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="c3q-ae-P4y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitterIcon" translatesAutoresizingMaskIntoConstraints="NO" id="c02-xx-DPP">
+                                <rect key="frame" x="112.5" y="282.5" width="150" height="122"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="c02-xx-DPP" secondAttribute="height" multiplier="1139:926" id="eBs-cS-KNe"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.25098039220000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstItem="c02-xx-DPP" firstAttribute="centerY" secondItem="0eI-Ix-cSO" secondAttribute="centerY" id="1yb-7f-3xp"/>
+                            <constraint firstItem="c02-xx-DPP" firstAttribute="centerX" secondItem="0eI-Ix-cSO" secondAttribute="centerX" id="NVi-9O-ftJ"/>
+                            <constraint firstItem="c02-xx-DPP" firstAttribute="width" secondItem="c3q-ae-P4y" secondAttribute="width" multiplier="0.4" id="vBN-Kd-iiq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0eI-Ix-cSO"/>
+                    </view>
+                    <connections>
+                        <outlet property="twitterIconImageView" destination="c02-xx-DPP" id="kH1-zq-I5n"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ypf-CX-JJC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-50" y="155"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="twitterIcon" width="1139" height="926"/>
+    </resources>
 </document>
