@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import TwitterKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,15 +15,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
-        
-        Twitter.sharedInstance().start(withConsumerKey:"liIM6ctHFzGDWH6qSa1TNsfEA", consumerSecret:"xn1aQ7sMknxdaHKTAccxPCyiKSRIRujhMw6lPs7cL9WZUy5R4t")
-
+        UIApplication.shared.statusBarView?.backgroundColor = appBlueColor!
         return true
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        return Twitter.sharedInstance().application(app, open: url, options: options)
+        if url.scheme?.lowercased() != "SKTwitterClient".lowercased() {
+            return false
+        }
+        
+        let authenticationParameters = url.queryParameters
+        if authenticationParameters!["oauth_verifier"] != nil {
+            NotificationCenter.default.post(name: .TwitterAuthonticationSuccessNotification , object: nil, userInfo: authenticationParameters)
+        }else{
+            NotificationCenter.default.post(name: .TwitterAuthonticationFauilureNotification , object: nil, userInfo: nil)
+        }
+
+        return true
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

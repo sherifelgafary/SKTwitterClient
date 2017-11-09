@@ -16,6 +16,9 @@
 		8AE5C6FC1FB3FBDD00785971 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5C6FB1FB3FBDD00785971 /* LoginViewController.swift */; };
 		8AE5C6FE1FB3FBF300785971 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5C6FD1FB3FBF300785971 /* BaseViewController.swift */; };
 		8AE5C7001FB4100C00785971 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5C6FF1FB4100C00785971 /* Global.swift */; };
+		8AE5C7021FB4172500785971 /* BaseDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5C7011FB4172500785971 /* BaseDataModel.swift */; };
+		8AE5C7041FB4173700785971 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5C7031FB4173700785971 /* UserModel.swift */; };
+		8AE5C7081FB4FF9A00785971 /* AuthenticationWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5C7071FB4FF9A00785971 /* AuthenticationWebViewViewController.swift */; };
 		E702311EB03974572426B804 /* Pods_SKTwitterClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF73ADDC52E836F21F37746 /* Pods_SKTwitterClient.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +34,9 @@
 		8AE5C6FB1FB3FBDD00785971 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8AE5C6FD1FB3FBF300785971 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		8AE5C6FF1FB4100C00785971 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		8AE5C7011FB4172500785971 /* BaseDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDataModel.swift; sourceTree = "<group>"; };
+		8AE5C7031FB4173700785971 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		8AE5C7071FB4FF9A00785971 /* AuthenticationWebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationWebViewViewController.swift; sourceTree = "<group>"; };
 		9F4C93E2667D1CCA53D5A61C /* Pods-SKTwitterClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKTwitterClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-SKTwitterClient/Pods-SKTwitterClient.release.xcconfig"; sourceTree = "<group>"; };
 		DCF73ADDC52E836F21F37746 /* Pods_SKTwitterClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SKTwitterClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -87,6 +93,7 @@
 				8AE5C6FD1FB3FBF300785971 /* BaseViewController.swift */,
 				8AE5C6F81FB3DAED00785971 /* SplashScreenViewController.swift */,
 				8AE5C6FB1FB3FBDD00785971 /* LoginViewController.swift */,
+				8AE5C7071FB4FF9A00785971 /* AuthenticationWebViewViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -118,6 +125,8 @@
 		8AE5C6F61FB3DA9E00785971 /* Data Models */ = {
 			isa = PBXGroup;
 			children = (
+				8AE5C7011FB4172500785971 /* BaseDataModel.swift */,
+				8AE5C7031FB4173700785971 /* UserModel.swift */,
 			);
 			path = "Data Models";
 			sourceTree = "<group>";
@@ -249,6 +258,7 @@
 				"${BUILT_PRODUCTS_DIR}/Agrume/Agrume.framework",
 				"${BUILT_PRODUCTS_DIR}/GSKStretchyHeaderView/GSKStretchyHeaderView.framework",
 				"${BUILT_PRODUCTS_DIR}/RevealingSplashView/RevealingSplashView.framework",
+				"${BUILT_PRODUCTS_DIR}/STTwitter/STTwitter.framework",
 				"${BUILT_PRODUCTS_DIR}/SVPullToRefresh/SVPullToRefresh.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -258,6 +268,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Agrume.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GSKStretchyHeaderView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealingSplashView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/STTwitter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVPullToRefresh.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,9 +302,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AE5C6FC1FB3FBDD00785971 /* LoginViewController.swift in Sources */,
+				8AE5C7041FB4173700785971 /* UserModel.swift in Sources */,
 				8AE5C6FE1FB3FBF300785971 /* BaseViewController.swift in Sources */,
 				8AE5C6F91FB3DAED00785971 /* SplashScreenViewController.swift in Sources */,
+				8AE5C7081FB4FF9A00785971 /* AuthenticationWebViewViewController.swift in Sources */,
 				8AE5C7001FB4100C00785971 /* Global.swift in Sources */,
+				8AE5C7021FB4172500785971 /* BaseDataModel.swift in Sources */,
 				8AE5C6E11FB3D36D00785971 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

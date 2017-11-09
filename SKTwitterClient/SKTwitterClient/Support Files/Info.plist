@@ -5,17 +5,16 @@
     <key>CFBundleURLTypes</key>
     <array>
         <dict>
+            <key>CFBundleTypeRole</key>
+            <string>Viewer</string>
+            <key>CFBundleURLName</key>
+            <string>ch.seriot.STTwitterDemoiOSSafari</string>
             <key>CFBundleURLSchemes</key>
             <array>
-                <string>twitterkit-liIM6ctHFzGDWH6qSa1TNsfEA</string>
-                </array>
-            </dict>
-        </array>
-        <key>LSApplicationQueriesSchemes</key>
-        <array>
-            <string>twitter</string>
-            <string>twitterauth</string>
-        </array>
+                <string>SKTwitterClient</string>
+            </array>
+        </dict>
+    </array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

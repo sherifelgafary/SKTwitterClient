@@ -82,6 +82,56 @@
             </objects>
             <point key="canvasLocation" x="713" y="154"/>
         </scene>
+        <!--Authentication Web View View Controller-->
+        <scene sceneID="ARp-4q-blG">
+            <objects>
+                <viewController storyboardIdentifier="AuthenticationWebViewViewController" id="Hel-Ty-5VC" customClass="AuthenticationWebViewViewController" customModule="SKTwitterClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="m2a-8Q-Xxr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Psk-Yx-Ypb">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="barTintColor" red="0.36470588240000001" green="0.6588235294" blue="0.86274509799999999" alpha="1" colorSpace="deviceRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Authentication" id="xZh-12-vAe">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="NxV-Tl-xvO">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="CancelAuthontication:" destination="Hel-Ty-5VC" id="w7Q-vY-XP6"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vbd-Qs-wQz">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Psk-Yx-Ypb" firstAttribute="leading" secondItem="HNC-yb-7ef" secondAttribute="leading" id="2Iw-96-Egk"/>
+                            <constraint firstItem="HNC-yb-7ef" firstAttribute="trailing" secondItem="Psk-Yx-Ypb" secondAttribute="trailing" id="8PF-r7-I48"/>
+                            <constraint firstItem="vbd-Qs-wQz" firstAttribute="leading" secondItem="Psk-Yx-Ypb" secondAttribute="leading" id="8fn-rF-laK"/>
+                            <constraint firstItem="vbd-Qs-wQz" firstAttribute="trailing" secondItem="Psk-Yx-Ypb" secondAttribute="trailing" id="MCg-fp-CY6"/>
+                            <constraint firstItem="HNC-yb-7ef" firstAttribute="top" secondItem="Psk-Yx-Ypb" secondAttribute="top" id="a8F-nQ-Tyg"/>
+                            <constraint firstItem="vbd-Qs-wQz" firstAttribute="top" secondItem="Psk-Yx-Ypb" secondAttribute="bottom" id="gPQ-SR-Lrm"/>
+                            <constraint firstItem="HNC-yb-7ef" firstAttribute="bottom" secondItem="vbd-Qs-wQz" secondAttribute="bottom" id="oGv-MC-wju"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HNC-yb-7ef"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="vbd-Qs-wQz" id="Yq1-2f-af8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uag-zs-Fz8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="713" y="-516"/>
+        </scene>
     </scenes>
     <resources>
         <image name="BG" width="2025" height="3600"/>
