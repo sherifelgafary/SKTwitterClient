@@ -1,0 +1,12 @@
+platform :ios, '9.0'
+
+target 'SKTwitterClient' do
+  use_frameworks!
+ pod 'TwitterKit'
+ pod 'AFNetworking'
+ pod 'ActionSheetPicker-3.0'
+ pod 'SVPullToRefresh'
+ pod 'Agrume', :git => 'https://github.com/JanGorman/Agrume.git'
+ pod 'RevealingSplashView'
+ pod "GSKStretchyHeaderView"
+end

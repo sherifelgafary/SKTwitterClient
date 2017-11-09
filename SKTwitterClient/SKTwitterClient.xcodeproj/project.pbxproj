@@ -8,20 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		8AE5C6E11FB3D36D00785971 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5C6E01FB3D36D00785971 /* AppDelegate.swift */; };
-		8AE5C6E31FB3D36D00785971 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5C6E21FB3D36D00785971 /* ViewController.swift */; };
 		8AE5C6E61FB3D36D00785971 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AE5C6E41FB3D36D00785971 /* Main.storyboard */; };
 		8AE5C6E81FB3D36D00785971 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AE5C6E71FB3D36D00785971 /* Assets.xcassets */; };
 		8AE5C6EB1FB3D36D00785971 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AE5C6E91FB3D36D00785971 /* LaunchScreen.storyboard */; };
+		8AE5C6F91FB3DAED00785971 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5C6F81FB3DAED00785971 /* SplashScreenViewController.swift */; };
+		8AE5C6FA1FB3EEFD00785971 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AE5C6EC1FB3D36D00785971 /* Info.plist */; };
+		E702311EB03974572426B804 /* Pods_SKTwitterClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF73ADDC52E836F21F37746 /* Pods_SKTwitterClient.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D287F21588E9ECE2EBDAC1E /* Pods-SKTwitterClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKTwitterClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SKTwitterClient/Pods-SKTwitterClient.debug.xcconfig"; sourceTree = "<group>"; };
 		8AE5C6DD1FB3D36D00785971 /* SKTwitterClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKTwitterClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AE5C6E01FB3D36D00785971 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8AE5C6E21FB3D36D00785971 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8AE5C6E51FB3D36D00785971 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8AE5C6E71FB3D36D00785971 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8AE5C6EA1FB3D36D00785971 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8AE5C6EC1FB3D36D00785971 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8AE5C6F81FB3DAED00785971 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		9F4C93E2667D1CCA53D5A61C /* Pods-SKTwitterClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKTwitterClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-SKTwitterClient/Pods-SKTwitterClient.release.xcconfig"; sourceTree = "<group>"; };
+		DCF73ADDC52E836F21F37746 /* Pods_SKTwitterClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SKTwitterClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E702311EB03974572426B804 /* Pods_SKTwitterClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +46,8 @@
 			children = (
 				8AE5C6DF1FB3D36D00785971 /* SKTwitterClient */,
 				8AE5C6DE1FB3D36D00785971 /* Products */,
+				CC3C0A07B3FDC5C9921960B7 /* Pods */,
+				946828EFC7475DA993C104EB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +62,79 @@
 		8AE5C6DF1FB3D36D00785971 /* SKTwitterClient */ = {
 			isa = PBXGroup;
 			children = (
-				8AE5C6E01FB3D36D00785971 /* AppDelegate.swift */,
-				8AE5C6E21FB3D36D00785971 /* ViewController.swift */,
+				8AE5C6F71FB3DAAF00785971 /* Service Layer */,
+				8AE5C6F61FB3DA9E00785971 /* Data Models */,
+				8AE5C6F51FB3DA9400785971 /* Custom Cells */,
+				8AE5C6F41FB3DA8C00785971 /* FrameWorks */,
+				8AE5C6F31FB3DA8400785971 /* Support Files */,
+				8AE5C6F21FB3DA7500785971 /* ViewControllers */,
 				8AE5C6E41FB3D36D00785971 /* Main.storyboard */,
 				8AE5C6E71FB3D36D00785971 /* Assets.xcassets */,
 				8AE5C6E91FB3D36D00785971 /* LaunchScreen.storyboard */,
-				8AE5C6EC1FB3D36D00785971 /* Info.plist */,
 			);
 			path = SKTwitterClient;
+			sourceTree = "<group>";
+		};
+		8AE5C6F21FB3DA7500785971 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8AE5C6F81FB3DAED00785971 /* SplashScreenViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8AE5C6F31FB3DA8400785971 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8AE5C6E01FB3D36D00785971 /* AppDelegate.swift */,
+				8AE5C6EC1FB3D36D00785971 /* Info.plist */,
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		8AE5C6F41FB3DA8C00785971 /* FrameWorks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FrameWorks;
+			sourceTree = "<group>";
+		};
+		8AE5C6F51FB3DA9400785971 /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Custom Cells";
+			sourceTree = "<group>";
+		};
+		8AE5C6F61FB3DA9E00785971 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Data Models";
+			sourceTree = "<group>";
+		};
+		8AE5C6F71FB3DAAF00785971 /* Service Layer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Service Layer";
+			sourceTree = "<group>";
+		};
+		946828EFC7475DA993C104EB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DCF73ADDC52E836F21F37746 /* Pods_SKTwitterClient.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CC3C0A07B3FDC5C9921960B7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1D287F21588E9ECE2EBDAC1E /* Pods-SKTwitterClient.debug.xcconfig */,
+				9F4C93E2667D1CCA53D5A61C /* Pods-SKTwitterClient.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +144,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8AE5C6EF1FB3D36D00785971 /* Build configuration list for PBXNativeTarget "SKTwitterClient" */;
 			buildPhases = (
+				C99DC6F326C2150ABD9FB6A3 /* [CP] Check Pods Manifest.lock */,
 				8AE5C6D91FB3D36D00785971 /* Sources */,
 				8AE5C6DA1FB3D36D00785971 /* Frameworks */,
 				8AE5C6DB1FB3D36D00785971 /* Resources */,
+				6C22EC88014CBE8307DA0EF2 /* [CP] Embed Pods Frameworks */,
+				53272A18703F8845AAF5DC8B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,6 +199,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AE5C6FA1FB3EEFD00785971 /* Info.plist in Resources */,
 				8AE5C6EB1FB3D36D00785971 /* LaunchScreen.storyboard in Resources */,
 				8AE5C6E81FB3D36D00785971 /* Assets.xcassets in Resources */,
 				8AE5C6E61FB3D36D00785971 /* Main.storyboard in Resources */,
@@ -131,12 +208,80 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		53272A18703F8845AAF5DC8B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SKTwitterClient/Pods-SKTwitterClient-resources.sh",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterShareExtensionUIResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SKTwitterClient/Pods-SKTwitterClient-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6C22EC88014CBE8307DA0EF2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SKTwitterClient/Pods-SKTwitterClient-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
+				"${BUILT_PRODUCTS_DIR}/Agrume/Agrume.framework",
+				"${BUILT_PRODUCTS_DIR}/GSKStretchyHeaderView/GSKStretchyHeaderView.framework",
+				"${BUILT_PRODUCTS_DIR}/RevealingSplashView/RevealingSplashView.framework",
+				"${BUILT_PRODUCTS_DIR}/SVPullToRefresh/SVPullToRefresh.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheetPicker_3_0.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Agrume.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GSKStretchyHeaderView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealingSplashView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVPullToRefresh.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SKTwitterClient/Pods-SKTwitterClient-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C99DC6F326C2150ABD9FB6A3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SKTwitterClient-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8AE5C6D91FB3D36D00785971 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AE5C6E31FB3D36D00785971 /* ViewController.swift in Sources */,
+				8AE5C6F91FB3DAED00785971 /* SplashScreenViewController.swift in Sources */,
 				8AE5C6E11FB3D36D00785971 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,11 +417,13 @@
 		};
 		8AE5C6F01FB3D36D00785971 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D287F21588E9ECE2EBDAC1E /* Pods-SKTwitterClient.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2P8C73SR9M;
-				INFOPLIST_FILE = SKTwitterClient/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SKTwitterClient/Support Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SherifKhaled.SKTwitterClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -287,11 +434,13 @@
 		};
 		8AE5C6F11FB3D36D00785971 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F4C93E2667D1CCA53D5A61C /* Pods-SKTwitterClient.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2P8C73SR9M;
-				INFOPLIST_FILE = SKTwitterClient/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SKTwitterClient/Support Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SherifKhaled.SKTwitterClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
