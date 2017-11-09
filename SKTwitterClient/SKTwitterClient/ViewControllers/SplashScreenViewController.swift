@@ -8,13 +8,17 @@
 
 import UIKit
 
-class SplashScreenViewController: UIViewController {
+class SplashScreenViewController: BaseViewController {
 
     @IBOutlet weak var twitterIconImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        replaceCurrentVisableViewControllerWithViewController(viewController: LoginViewController.instance())
     }
     
 }

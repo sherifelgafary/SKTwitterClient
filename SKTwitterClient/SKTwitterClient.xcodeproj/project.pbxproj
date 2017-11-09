@@ -13,6 +13,9 @@
 		8AE5C6EB1FB3D36D00785971 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AE5C6E91FB3D36D00785971 /* LaunchScreen.storyboard */; };
 		8AE5C6F91FB3DAED00785971 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5C6F81FB3DAED00785971 /* SplashScreenViewController.swift */; };
 		8AE5C6FA1FB3EEFD00785971 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AE5C6EC1FB3D36D00785971 /* Info.plist */; };
+		8AE5C6FC1FB3FBDD00785971 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5C6FB1FB3FBDD00785971 /* LoginViewController.swift */; };
+		8AE5C6FE1FB3FBF300785971 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5C6FD1FB3FBF300785971 /* BaseViewController.swift */; };
+		8AE5C7001FB4100C00785971 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5C6FF1FB4100C00785971 /* Global.swift */; };
 		E702311EB03974572426B804 /* Pods_SKTwitterClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF73ADDC52E836F21F37746 /* Pods_SKTwitterClient.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +28,9 @@
 		8AE5C6EA1FB3D36D00785971 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8AE5C6EC1FB3D36D00785971 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AE5C6F81FB3DAED00785971 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		8AE5C6FB1FB3FBDD00785971 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8AE5C6FD1FB3FBF300785971 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		8AE5C6FF1FB4100C00785971 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		9F4C93E2667D1CCA53D5A61C /* Pods-SKTwitterClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKTwitterClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-SKTwitterClient/Pods-SKTwitterClient.release.xcconfig"; sourceTree = "<group>"; };
 		DCF73ADDC52E836F21F37746 /* Pods_SKTwitterClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SKTwitterClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -78,7 +84,9 @@
 		8AE5C6F21FB3DA7500785971 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8AE5C6FD1FB3FBF300785971 /* BaseViewController.swift */,
 				8AE5C6F81FB3DAED00785971 /* SplashScreenViewController.swift */,
+				8AE5C6FB1FB3FBDD00785971 /* LoginViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -88,6 +96,7 @@
 			children = (
 				8AE5C6E01FB3D36D00785971 /* AppDelegate.swift */,
 				8AE5C6EC1FB3D36D00785971 /* Info.plist */,
+				8AE5C6FF1FB4100C00785971 /* Global.swift */,
 			);
 			path = "Support Files";
 			sourceTree = "<group>";
@@ -281,7 +290,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AE5C6FC1FB3FBDD00785971 /* LoginViewController.swift in Sources */,
+				8AE5C6FE1FB3FBF300785971 /* BaseViewController.swift in Sources */,
 				8AE5C6F91FB3DAED00785971 /* SplashScreenViewController.swift in Sources */,
+				8AE5C7001FB4100C00785971 /* Global.swift in Sources */,
 				8AE5C6E11FB3D36D00785971 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
