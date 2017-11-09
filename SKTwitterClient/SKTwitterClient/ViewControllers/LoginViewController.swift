@@ -21,8 +21,8 @@ class LoginViewController: BaseViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.handleAuthonticationSuccess(_:)), name: .TwitterAuthonticationSuccessNotification , object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.handleAuthonticationFailure(_:)), name: .TwitterAuthonticationFauilureNotification , object: nil)
-        
     }
+    
     
     @objc func handleAuthonticationFailure(_ notification: NSNotification) {
         self.dismiss(animated: true) {
@@ -93,7 +93,7 @@ class LoginViewController: BaseViewController {
     
     
     func redirectUserToHomeScreen()  {
-//        NotificationCenter.default.removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
         
     }
     

@@ -18,7 +18,10 @@ class SplashScreenViewController: BaseViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        replaceCurrentVisableViewControllerWithViewController(viewController: LoginViewController.instance())
+        let loginVC = LoginViewController.instance()
+        loginVC.showSplashAnimation = true
+        loginVC.splashIconSize = twitterIconImageView.frame.size
+        replaceCurrentVisableViewControllerWithViewController(viewController: loginVC)
     }
     
 }

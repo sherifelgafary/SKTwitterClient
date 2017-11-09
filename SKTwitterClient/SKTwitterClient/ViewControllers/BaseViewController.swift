@@ -7,11 +7,31 @@
 //
 
 import UIKit
+import RevealingSplashView
 
 class BaseViewController: UIViewController {
-
+    
+    var splashIconSize:CGSize!
+    var revealingSplashView : RevealingSplashView?
+    var showSplashAnimation = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        if self.showSplashAnimation{
+            self.animateSplashView()
+        }
+    }
+    
+    func animateSplashView()  {
+        revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "twitterIcon")!,iconInitialSize: self.splashIconSize, backgroundColor: appBlueColor!)
+        self.view.addSubview(revealingSplashView!)
+        
+        revealingSplashView?.animationType = SplashAnimationType.popAndZoomOut
+
+        revealingSplashView?.startAnimation(){
+            self.revealingSplashView?.removeFromSuperview()
+            self.revealingSplashView = nil
+        }
 
     }
     
