@@ -39,10 +39,12 @@ extension HomeViewController : UICollectionViewDataSource,UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FollwerListStyleCollectionViewCell", for: indexPath) as? FollwerListStyleCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FollwerGridStyleCollectionViewCell", for: indexPath) as? FollwerGridStyleCollectionViewCell
         cell?.backgroundColor = .clear
         cell?.userScreenNameLabel.text = "akjsask dajs kdasjd kasjd akjsd kasd kasjd aksjd aksjd aksdj aksdj askda jsdjka skjda sdkas dkas dakjsd aksdj aksd jaskdj askda sdkja sdkas ksja ksdja skdjas dkasj d"
-        cell?.cellWidthConstraint.constant = self.view.frame.size.width - 24
+//        cell?.cellWidthConstraint.constant = self.view.frame.size.width - 24
+        cell?.cellWidthConstraint.constant = self.view.frame.size.width / 3 - 24
+
         cell?.layoutIfNeeded()
         return cell!
     }

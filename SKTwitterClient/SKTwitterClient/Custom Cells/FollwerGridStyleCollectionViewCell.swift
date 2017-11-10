@@ -9,5 +9,11 @@
 import UIKit
 
 class FollwerGridStyleCollectionViewCell: UICollectionViewCell {
-    
+    @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var userCoverImageView: UIImageView!
+    @IBOutlet weak var userScreenNameLabel: UILabel!
+    @IBOutlet weak var userHandleLabel: UILabel!
+    @IBOutlet weak var userBioLabel: UILabel!
+    @IBOutlet weak var cellWidthConstraint: NSLayoutConstraint!
+
 }
