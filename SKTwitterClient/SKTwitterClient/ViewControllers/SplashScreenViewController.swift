@@ -24,8 +24,6 @@ class SplashScreenViewController: BaseViewController {
         homeVC.splashIconSize = self.twitterIconImageView.frame.size
         
         let nav = UINavigationController(rootViewController: homeVC)
-        nav.navigationBar.isTranslucent = false
-        nav.navigationBar.barTintColor = appBlueColor
         replaceCurrentVisableViewControllerWithViewController(viewController: nav)
     }
     
@@ -44,7 +42,7 @@ class SplashScreenViewController: BaseViewController {
                 
                 twitterClient.verifyCredentials(userSuccessBlock: { (screenName, userID) in
                     appUser?.userID = userID!
-                    appUser?.userName = screenName!
+                    appUser?.userScreenName = screenName!
                     self.openHomeScreen()
                 }, errorBlock: { (error) in
                     self.openLoginScreen()

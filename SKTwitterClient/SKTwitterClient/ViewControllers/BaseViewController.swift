@@ -20,6 +20,11 @@ class BaseViewController: UIViewController {
         if self.showSplashAnimation{
             self.animateSplashView()
         }
+        if let VC = self as? HomeViewController {
+            if self.showSplashAnimation == false{
+                VC.setupNavigationBarItems()
+            }
+        }
     }
     
     func animateSplashView()  {
@@ -29,6 +34,9 @@ class BaseViewController: UIViewController {
         revealingSplashView?.animationType = SplashAnimationType.popAndZoomOut
 
         revealingSplashView?.startAnimation(){
+            if let VC = self as? HomeViewController {
+                VC.setupNavigationBarItems()
+            }
             self.revealingSplashView?.removeFromSuperview()
             self.revealingSplashView = nil
         }

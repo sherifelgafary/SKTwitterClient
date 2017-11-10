@@ -16,6 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         UIApplication.shared.statusBarView?.backgroundColor = appBlueColor!
+        
+        let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
+        let navigationBarAppearace = UINavigationBar.appearance()
+        navigationBarAppearace.isTranslucent = false
+        navigationBarAppearace.tintColor = UIColor.white
+        navigationBarAppearace.barTintColor = appBlueColor!
+        navigationBarAppearace.titleTextAttributes = textAttributes
+
+        
         return true
     }
     

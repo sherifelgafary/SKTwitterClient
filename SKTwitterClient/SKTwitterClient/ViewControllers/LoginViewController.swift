@@ -98,8 +98,6 @@ class LoginViewController: BaseViewController {
         let homeVC = HomeViewController.instance()
         
         let nav = UINavigationController(rootViewController: homeVC)
-        nav.navigationBar.isTranslucent = false
-        nav.navigationBar.barTintColor = appBlueColor
         replaceCurrentVisableViewControllerWithViewController(viewController: nav)
     }
     
