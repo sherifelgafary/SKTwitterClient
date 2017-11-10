@@ -7,10 +7,20 @@
 //
 
 import UIKit
+import STTwitter
+
+enum DevicOriantation {
+    case LandScape
+    case Portrait
+}
 
 class HomeViewController: BaseViewController {
     
     @IBOutlet weak var followersCollectionView: UICollectionView!
+    var followers = [UserModel]()
+    var followersCurrentPage = "-1"
+    let followersPageSize = "5"
+    var currentOriantation:DevicOriantation = UIDevice.current.orientation.isLandscape ? .LandScape:.Portrait
     
     override class func instance()->HomeViewController {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -28,26 +38,52 @@ class HomeViewController: BaseViewController {
         
         layout.estimatedItemSize = CGSize(width: 400, height: 100)
         followersCollectionView.collectionViewLayout = layout
-
+        
+        self.getFollowersList()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if UIDevice.current.orientation.isLandscape {
+            self.currentOriantation = .LandScape
+        }else {
+            self.currentOriantation = .Portrait
+        }
+        self.followersCollectionView.reloadData()
+    }
+    
+    
+    func getFollowersList()  {
+        UserModel.getFollowersList(currentPage: followersCurrentPage, pageSize: followersPageSize) { (dataArray, msg, nextPage) in
+            if self.followersCurrentPage == "-1"{
+                self.followers = dataArray
+            }else{
+                self.followers.append(contentsOf: dataArray)
+            }
+            self.followersCurrentPage = nextPage
+            self.followersCollectionView.reloadData()
+        }
     }
     
 }
 
 extension HomeViewController : UICollectionViewDataSource,UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return self.followers.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FollwerGridStyleCollectionViewCell", for: indexPath) as? FollwerGridStyleCollectionViewCell
+        var cell:FollwerListStyleCollectionViewCell?
+        if self.currentOriantation == .LandScape {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FollwerGridStyleCollectionViewCell", for: indexPath) as? FollwerGridStyleCollectionViewCell
+            cell?.cellWidthConstraint.constant = self.view.frame.size.width / 2 - 18
+        }else{
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FollwerListStyleCollectionViewCell", for: indexPath) as? FollwerListStyleCollectionViewCell
+            cell?.cellWidthConstraint.constant = self.view.frame.size.width - 24
+        }
         cell?.backgroundColor = .clear
-        cell?.userScreenNameLabel.text = "akjsask dajs kdasjd kasjd akjsd kasd kasjd aksjd aksjd aksdj aksdj askda jsdjka skjda sdkas dkas dakjsd aksdj aksd jaskdj askda sdkja sdkas ksja ksdja skdjas dkasj d"
-//        cell?.cellWidthConstraint.constant = self.view.frame.size.width - 24
-        cell?.cellWidthConstraint.constant = self.view.frame.size.width / 3 - 24
-
+        cell?.bindWithFollowerObject(follower: self.followers[indexPath.row])
         cell?.layoutIfNeeded()
         return cell!
     }
-    
     
 }

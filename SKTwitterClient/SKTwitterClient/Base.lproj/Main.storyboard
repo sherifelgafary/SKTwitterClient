@@ -95,7 +95,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sTA-6t-ETp">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="e01-s6-Npb">
                                     <size key="itemSize" width="357" height="123"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -113,7 +113,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dTt-8C-5di">
                                                     <rect key="frame" x="12" y="6" width="333" height="111"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YC1-pQ-Zji">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YC1-pQ-Zji">
                                                             <rect key="frame" x="8" y="20.5" width="70" height="70"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="70" id="lJm-M6-KIN"/>
@@ -123,12 +123,18 @@
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="corner">
                                                                     <real key="value" value="35"/>
                                                                 </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                    <real key="value" value="2"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                    <color key="value" red="0.36470588240000001" green="0.6588235294" blue="0.86274509799999999" alpha="1" colorSpace="deviceRGB"/>
+                                                                </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6CO-Bd-0wS">
                                                             <rect key="frame" x="86" y="20" width="235" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="textColor" red="0.36470588240000001" green="0.6588235294" blue="0.86274509799999999" alpha="1" colorSpace="deviceRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64o-pT-pXp">
@@ -140,11 +146,11 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEl-fx-Vzg">
                                                             <rect key="frame" x="86" y="78" width="235" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="textColor" red="0.36470588240000001" green="0.6588235294" blue="0.86274509799999999" alpha="1" colorSpace="deviceRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.36470588240000001" green="0.6588235294" blue="0.86274509799999999" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="tEl-fx-Vzg" firstAttribute="leading" secondItem="64o-pT-pXp" secondAttribute="leading" id="A0x-KS-BPB"/>
                                                         <constraint firstItem="6CO-Bd-0wS" firstAttribute="leading" secondItem="YC1-pQ-Zji" secondAttribute="trailing" constant="8" id="B2I-LZ-24n"/>
@@ -197,13 +203,18 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhG-Ae-UKo">
                                                     <rect key="frame" x="6" y="6" width="165" height="186"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HPI-ll-w2R">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HPI-ll-w2R">
                                                             <rect key="frame" x="0.0" y="0.0" width="165" height="60"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="60" id="Ht4-xr-fpp"/>
                                                             </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="corner">
+                                                                    <real key="value" value="8"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ua9-rc-TRK">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ua9-rc-TRK">
                                                             <rect key="frame" x="57" y="35" width="50" height="50"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="Ua9-rc-TRK" secondAttribute="height" multiplier="1:1" id="ptf-vi-wxW"/>
@@ -213,12 +224,18 @@
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="corner">
                                                                     <real key="value" value="25"/>
                                                                 </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                    <real key="value" value="2"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                    <color key="value" red="0.36470588240000001" green="0.6588235294" blue="0.86274509799999999" alpha="1" colorSpace="deviceRGB"/>
+                                                                </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njh-eZ-aXg">
                                                             <rect key="frame" x="6" y="98" width="153" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="textColor" red="0.36470588240000001" green="0.6588235294" blue="0.86274509799999999" alpha="1" colorSpace="deviceRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5k2-tG-vJd">
@@ -230,11 +247,11 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5x-44-aSe">
                                                             <rect key="frame" x="6" y="156" width="153" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="textColor" red="0.36470588240000001" green="0.6588235294" blue="0.86274509799999999" alpha="1" colorSpace="deviceRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.36470588240000001" green="0.6588235294" blue="0.86274509799999999" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="njh-eZ-aXg" firstAttribute="leading" secondItem="dhG-Ae-UKo" secondAttribute="leading" constant="6" id="3HK-Nn-Ify"/>
                                                         <constraint firstItem="z5x-44-aSe" firstAttribute="leading" secondItem="5k2-tG-vJd" secondAttribute="leading" id="56z-pT-dOC"/>
@@ -289,7 +306,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.36470588240000001" green="0.6588235294" blue="0.86274509799999999" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstItem="Z1U-eE-VDV" firstAttribute="trailing" secondItem="sTA-6t-ETp" secondAttribute="trailing" id="IzY-uX-Fz2"/>
                             <constraint firstItem="sTA-6t-ETp" firstAttribute="top" secondItem="Z1U-eE-VDV" secondAttribute="top" id="bM6-Ah-paX"/>

@@ -8,12 +8,17 @@
 
 import UIKit
 
-class FollwerGridStyleCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var userImageView: UIImageView!
+class FollwerGridStyleCollectionViewCell: FollwerListStyleCollectionViewCell {
     @IBOutlet weak var userCoverImageView: UIImageView!
-    @IBOutlet weak var userScreenNameLabel: UILabel!
-    @IBOutlet weak var userHandleLabel: UILabel!
-    @IBOutlet weak var userBioLabel: UILabel!
-    @IBOutlet weak var cellWidthConstraint: NSLayoutConstraint!
+
+    
+    override func bindWithFollowerObject(follower:UserModel)  {
+        super.bindWithFollowerObject(follower: follower)
+        if let imageUrl = URL(string: follower.userProfileCoverImageUrl) {
+            self.userCoverImageView.setImageWith( imageUrl, placeholderImage: UIImage(named:"Temp"))
+        }else{
+            self.userCoverImageView.image = UIImage(named:"Temp")
+        }
+    }
 
 }

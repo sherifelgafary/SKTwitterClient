@@ -80,7 +80,6 @@
 		8AE5C6DF1FB3D36D00785971 /* SKTwitterClient */ = {
 			isa = PBXGroup;
 			children = (
-				8AE5C6F71FB3DAAF00785971 /* Service Layer */,
 				8AE5C6F61FB3DA9E00785971 /* Data Models */,
 				8AE5C6F51FB3DA9400785971 /* Custom Cells */,
 				8AE5C6F41FB3DA8C00785971 /* FrameWorks */,
@@ -138,13 +137,6 @@
 				8AE5C7031FB4173700785971 /* UserModel.swift */,
 			);
 			path = "Data Models";
-			sourceTree = "<group>";
-		};
-		8AE5C6F71FB3DAAF00785971 /* Service Layer */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Service Layer";
 			sourceTree = "<group>";
 		};
 		946828EFC7475DA993C104EB /* Frameworks */ = {

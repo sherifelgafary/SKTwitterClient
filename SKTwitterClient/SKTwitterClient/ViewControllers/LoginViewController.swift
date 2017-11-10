@@ -10,7 +10,6 @@ import UIKit
 import STTwitter
 
 class LoginViewController: BaseViewController {
-    var twitterClient:STTwitterAPI!
     override class func instance()->LoginViewController{
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         return storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
@@ -35,7 +34,7 @@ class LoginViewController: BaseViewController {
         
         let verifier = notification.userInfo!["oauth_verifier"] as? String ?? ""
         
-        self.twitterClient?.postAccessTokenRequest(withPIN: verifier, successBlock: { (oauthToken, oauthTokenSecret, userID, screenName) in
+        twitterClient?.postAccessTokenRequest(withPIN: verifier, successBlock: { (oauthToken, oauthTokenSecret, userID, screenName) in
             appUser = UserModel()
             appUser?.userOATHToken = oauthToken!
             appUser?.userOATHTokenSecret = oauthTokenSecret!
@@ -49,7 +48,7 @@ class LoginViewController: BaseViewController {
     }
     
     func getUserBannarImage()  {
-        self.twitterClient.getUsersProfileBanner(forUserID: appUser?.userID, orScreenName: appUser?.userScreenName, successBlock: { (response) in
+        twitterClient.getUsersProfileBanner(forUserID: appUser?.userID, orScreenName: appUser?.userScreenName, successBlock: { (response) in
             
             appUser?.userProfileCoverImageUrl = ""
             if let result = response as? [String:AnyObject]{
@@ -69,7 +68,7 @@ class LoginViewController: BaseViewController {
     }
     
     func getUserProfileImage()  {
-        self.twitterClient.profileImage(for: appUser?.userScreenName, successBlock: { (result) in
+        twitterClient.profileImage(for: appUser?.userScreenName, successBlock: { (result) in
             appUser?.userProfileImageObject = result as? UIImage ?? UIImage(named:"Temp")
             self.redirectUserToHomeScreen()
         }, errorBlock: { (error) in
@@ -80,7 +79,7 @@ class LoginViewController: BaseViewController {
     
     @IBAction func twitterLogin(_ sender: UIButton) {
         twitterClient = STTwitterAPI(oAuthConsumerKey: consumerKey, consumerSecret: consumerSecret)
-        self.twitterClient?.postTokenRequest({ (url, oauthToken) in
+        twitterClient?.postTokenRequest({ (url, oauthToken) in
             let authonticationWebView = AuthenticationWebViewViewController.instance()
             self.present(authonticationWebView , animated: true, completion: {
                 let authenticationRequest = URLRequest(url: url!)

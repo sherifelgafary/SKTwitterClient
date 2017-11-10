@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import STTwitter
 
 let consumerKey = "liIM6ctHFzGDWH6qSa1TNsfEA"
 let consumerSecret = "xn1aQ7sMknxdaHKTAccxPCyiKSRIRujhMw6lPs7cL9WZUy5R4t"
@@ -14,6 +15,7 @@ let consumerSecret = "xn1aQ7sMknxdaHKTAccxPCyiKSRIRujhMw6lPs7cL9WZUy5R4t"
 let delegate = UIApplication.shared.delegate as? AppDelegate
 
 var appUser:UserModel?
+var twitterClient:STTwitterAPI!
 
 
 extension Notification.Name {
