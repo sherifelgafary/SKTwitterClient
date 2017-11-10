@@ -9,6 +9,8 @@
 import UIKit
 import STTwitter
 import SVPullToRefresh
+import ActionSheetPicker_3_0
+import Accounts
 
 enum DevicOriantation {
     case LandScape
@@ -17,11 +19,16 @@ enum DevicOriantation {
 
 class HomeViewController: BaseViewController {
     
+    
+    
     @IBOutlet weak var followersCollectionView: UICollectionView!
     var followers = [UserModel]()
     var followersCurrentPage = "-1"
     let followersPageSize = "5"
     var currentOriantation:DevicOriantation = UIDevice.current.orientation.isLandscape ? .LandScape:.Portrait
+    var accountStore = ACAccountStore()
+    var deviceTwitterAccounts = [ACAccount]()
+    var currentAccountButton:UIButton?
     
     override class func instance()->HomeViewController {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -30,7 +37,7 @@ class HomeViewController: BaseViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        followersCollectionView.collectionViewLayout.invalidateLayout()
+        self.followersCollectionView.collectionViewLayout.invalidateLayout()
     }
     
     
@@ -70,15 +77,61 @@ class HomeViewController: BaseViewController {
         let logOutButton = UIBarButtonItem(image: UIImage(named:"ico_logout"), style: .plain, target: self, action: #selector(HomeViewController.logout(_:)))
         self.navigationItem.leftBarButtonItem = logOutButton
         
-        let currentAccountButton = UIButton(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width , height: 44))
-        currentAccountButton.setTitleColor(.white, for: .normal)
-        currentAccountButton.setTitle("@" + (appUser?.userScreenName)!, for: .normal)
+        currentAccountButton = UIButton(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width , height: 44))
+        currentAccountButton?.setTitleColor(.white, for: .normal)
+        currentAccountButton?.setTitle("@" + (appUser?.userScreenName)!, for: .normal)
+        currentAccountButton?.addTarget(self, action: #selector(HomeViewController.chooseCurrentAccount(_:)), for: .touchUpInside)
         self.navigationItem.titleView = currentAccountButton
         
     }
     
     @objc func chooseCurrentAccount(_ sender: UIButton)  {
+        let accountType = self.accountStore.accountType(withAccountTypeIdentifier: ACAccountTypeIdentifierTwitter)
         
+        let accountStoreRequestCompletionHandler = { (granted:Bool,error:Error?) in
+            OperationQueue.main.addOperation {
+                if granted == false{
+                    alertWithTitleInViewController(self, title: "Alert", message: "Twitter accounts access not granted, please add accounts permision to proceed")
+                    return
+                }
+                self.deviceTwitterAccounts = self.accountStore.accounts(with: accountType) as! [ACAccount]
+                self.showAccountsList()
+            }
+        }
+        self.accountStore.requestAccessToAccounts(with: accountType, options: nil, completion: accountStoreRequestCompletionHandler)
+    }
+    
+    
+    
+    func showAccountsList()  {
+        var userNames = [String]()
+        for item in self.deviceTwitterAccounts {
+            userNames.append("@" + item.username)
+        }
+        var index = 0
+        if let selectedIndex = userNames.index(of: (self.currentAccountButton?.title(for: .normal)) ?? ""){
+            index = selectedIndex
+        }
+        
+        ActionSheetStringPicker.show(withTitle: "User accounts", rows: userNames, initialSelection: index, doneBlock: { (picker, index, value) in
+            self.SwitchAccount(index)
+        }, cancel: { (picker) in
+            
+        }, origin: self.view)
+    }
+    
+    func SwitchAccount(_ index: Int) {
+        twitterClient = STTwitterAPI.twitterAPIOS(with: self.deviceTwitterAccounts[index], delegate: self)
+        twitterClient.verifyCredentials(userSuccessBlock: { (screenName, userID) in
+            self.followersCurrentPage = "-1"
+            UserDefaults.standard.removeObject(forKey: "followers")
+            self.followers = []
+            self.followersCollectionView.reloadData()
+            self.followersCollectionView.collectionViewLayout.invalidateLayout()
+            self.getFollowersList()
+        }, errorBlock: { (error) in
+            alertWithTitleInViewController(self, title: "Title", message: (error?.localizedDescription)!)
+        })
     }
     
     @objc func logout(_ sender: UIButton)  {
@@ -95,6 +148,7 @@ class HomeViewController: BaseViewController {
             self.currentOriantation = .Portrait
         }
         self.followersCollectionView.reloadData()
+        self.followersCollectionView.collectionViewLayout.invalidateLayout()
     }
     
     
@@ -120,12 +174,14 @@ class HomeViewController: BaseViewController {
             self.followersCollectionView.pullToRefreshView.stopAnimating()
             self.followersCurrentPage = nextPage
             self.followersCollectionView.reloadData()
+            self.followersCollectionView.collectionViewLayout.invalidateLayout()
         }
     }
     
 }
 
 extension HomeViewController : UICollectionViewDataSource,UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.followers.count
     }
@@ -145,4 +201,10 @@ extension HomeViewController : UICollectionViewDataSource,UICollectionViewDelega
         return cell!
     }
     
+}
+
+extension HomeViewController : STTwitterAPIOSProtocol{
+    func twitterAPI(_ twitterAPI: STTwitterAPI!, accountWasInvalidated invalidatedAccount: ACAccount!) {
+        
+    }
 }
