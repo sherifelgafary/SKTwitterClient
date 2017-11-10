@@ -22,7 +22,6 @@ class HomeViewController: BaseViewController {
     var followersCurrentPage = "-1"
     let followersPageSize = "5"
     var currentOriantation:DevicOriantation = UIDevice.current.orientation.isLandscape ? .LandScape:.Portrait
-    var isRefreshing = false
 
     override class func instance()->HomeViewController {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -43,14 +42,12 @@ class HomeViewController: BaseViewController {
         
         self.followersCollectionView.addPullToRefresh {
             self.followersCurrentPage = "-1"
-            self.isRefreshing = true
             self.getFollowersList()
         }
         self.followersCollectionView.addInfiniteScrolling {
             self.getFollowersList()
         }
         self.getFollowersList()
-        
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -70,7 +67,6 @@ class HomeViewController: BaseViewController {
             }else{
                 self.followers.append(contentsOf: dataArray)
             }
-            self.isRefreshing = false
             
             if dataArray.count == 0{
                 self.followersCollectionView.showsInfiniteScrolling = false
@@ -78,6 +74,10 @@ class HomeViewController: BaseViewController {
                 self.followersCollectionView.showsInfiniteScrolling = true
                 self.followersCollectionView.infiniteScrollingView.stopAnimating()
             }
+            
+            let encodedData = NSKeyedArchiver.archivedData(withRootObject: self.followers)
+            UserDefaults.standard.set(encodedData, forKey: "followers")
+
             
             self.followersCollectionView.pullToRefreshView.stopAnimating()
             self.followersCurrentPage = nextPage

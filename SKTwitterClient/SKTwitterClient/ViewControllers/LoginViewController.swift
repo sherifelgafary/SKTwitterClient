@@ -41,41 +41,41 @@ class LoginViewController: BaseViewController {
             appUser?.userScreenName = screenName!
             appUser?.userID = userID!
             
-            self.getUserBannarImage()
+            self.redirectUserToHomeScreen()
         }, errorBlock: { (error) in
             alertWithTitleInViewController(self, title: "Alert", message: (error?.localizedDescription)!)
         })
     }
     
-    func getUserBannarImage()  {
-        twitterClient.getUsersProfileBanner(forUserID: appUser?.userID, orScreenName: appUser?.userScreenName, successBlock: { (response) in
-            
-            appUser?.userProfileCoverImageUrl = ""
-            if let result = response as? [String:AnyObject]{
-                if let sizes = result["sizes"] as? [String:AnyObject]{
-                    if let mobileRetina = sizes["mobile_retina"] as? [String:AnyObject] {
-                        appUser?.userProfileCoverImageUrl = mobileRetina["url"] as? String ?? ""
-                    }
-                }
-            }
-            
-            self.getUserProfileImage()
-        }, errorBlock: { (error) in
-            appUser?.userProfileCoverImageUrl = ""
-            self.getUserProfileImage()
-        })
-        
-    }
-    
-    func getUserProfileImage()  {
-        twitterClient.profileImage(for: appUser?.userScreenName, successBlock: { (result) in
-            appUser?.userProfileImageObject = result as? UIImage ?? UIImage(named:"Temp")
-            self.redirectUserToHomeScreen()
-        }, errorBlock: { (error) in
-            appUser?.userProfileImageObject = UIImage(named:"Temp")
-            self.redirectUserToHomeScreen()
-        })
-    }
+//    func getUserBannarImage()  {
+//        twitterClient.getUsersProfileBanner(forUserID: appUser?.userID, orScreenName: appUser?.userScreenName, successBlock: { (response) in
+//
+//            appUser?.userProfileCoverImageUrl = ""
+//            if let result = response as? [String:AnyObject]{
+//                if let sizes = result["sizes"] as? [String:AnyObject]{
+//                    if let mobileRetina = sizes["mobile_retina"] as? [String:AnyObject] {
+//                        appUser?.userProfileCoverImageUrl = mobileRetina["url"] as? String ?? ""
+//                    }
+//                }
+//            }
+//
+//            self.getUserProfileImage()
+//        }, errorBlock: { (error) in
+//            appUser?.userProfileCoverImageUrl = ""
+//            self.getUserProfileImage()
+//        })
+//
+//    }
+//
+//    func getUserProfileImage()  {
+//        twitterClient.profileImage(for: appUser?.userScreenName, successBlock: { (result) in
+//            appUser?.userProfileImageObject = result as? UIImage ?? UIImage(named:"Temp")
+//            self.redirectUserToHomeScreen()
+//        }, errorBlock: { (error) in
+//            appUser?.userProfileImageObject = UIImage(named:"Temp")
+//            self.redirectUserToHomeScreen()
+//        })
+//    }
     
     @IBAction func twitterLogin(_ sender: UIButton) {
         twitterClient = STTwitterAPI(oAuthConsumerKey: consumerKey, consumerSecret: consumerSecret)
