@@ -9,4 +9,5 @@ target 'SKTwitterClient' do
  pod 'RevealingSplashView'
  pod "GSKStretchyHeaderView"
  pod 'STTwitter'
+ pod 'KeychainAccess'
 end

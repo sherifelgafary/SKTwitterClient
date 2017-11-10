@@ -17,6 +17,7 @@ PODS:
     - AFNetworking/NSURLSession
   - Agrume (4.0.1)
   - GSKStretchyHeaderView (1.0.1)
+  - KeychainAccess (3.1.0)
   - RevealingSplashView (0.4.0)
   - STTwitter (0.2.6)
   - SVPullToRefresh (0.4.1)
@@ -26,6 +27,7 @@ DEPENDENCIES:
   - AFNetworking
   - Agrume (from `https://github.com/JanGorman/Agrume.git`)
   - GSKStretchyHeaderView
+  - KeychainAccess
   - RevealingSplashView
   - STTwitter
   - SVPullToRefresh
@@ -44,10 +46,11 @@ SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Agrume: 48da75e55a64ba86f6d8645144aaf0231669bfba
   GSKStretchyHeaderView: c7e7fddd73396764c9bd7aea81cf934af7f8afd2
+  KeychainAccess: 94c5540b32eabf7bc32bfb976a268e8ea05fd6da
   RevealingSplashView: 72be158ad5e1bc72713e8f78383dc3e1803ce4d1
   STTwitter: 30ee2f79eff78c3d633a1edc869e97db9c9ead59
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
 
-PODFILE CHECKSUM: 5eaaeb7ab76eedbea88a333366317f8ef91511db
+PODFILE CHECKSUM: 92a5fa8c9d2a19e39678a535e32beb32b48f34e0
 
 COCOAPODS: 1.3.1

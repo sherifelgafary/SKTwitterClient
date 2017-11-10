@@ -8,6 +8,7 @@
 
 import UIKit
 import STTwitter
+import KeychainAccess
 
 class UserModel: BaseDataModel, NSCoding {
     
@@ -57,6 +58,25 @@ class UserModel: BaseDataModel, NSCoding {
         coder.encode(userProfileCoverImageUrl, forKey: "userProfileCoverImageUrl")
         coder.encode(userProfileImageUrl, forKey: "userProfileImageUrl")
     }
+    
+    func saveUserAUTHData() {
+        let keychain = Keychain(service: "SherifKhaled.SKTwitterClient")
+        keychain["userOATHToken"] = self.userOATHToken
+        keychain["userOATHTokenSecret"] = self.userOATHTokenSecret
+    }
+    
+    func getUserAUTHData() {
+        let keychain = Keychain(service: "SherifKhaled.SKTwitterClient")
+        self.userOATHToken = keychain["userOATHToken"] ?? ""
+        self.userOATHTokenSecret = keychain["userOATHTokenSecret"] ?? ""
+    }
+    
+    func removeUserAUTHData() {
+        let keychain = Keychain(service: "SherifKhaled.SKTwitterClient")
+        keychain["userOATHToken"] = nil
+        keychain["userOATHTokenSecret"] = nil
+    }
+    
     
     
     class func getFollowersList(currentPage:String ,pageSize:String ,completion:@escaping (_ followers:[UserModel],_ message:String,_ nextPage:String)-> Void) {

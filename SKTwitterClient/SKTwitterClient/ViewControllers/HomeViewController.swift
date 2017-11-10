@@ -28,6 +28,11 @@ class HomeViewController: BaseViewController {
         return storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        followersCollectionView.collectionViewLayout.invalidateLayout()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let layout = UICollectionViewFlowLayout()

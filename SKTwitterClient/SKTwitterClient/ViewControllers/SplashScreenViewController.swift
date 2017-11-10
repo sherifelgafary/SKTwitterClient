@@ -37,18 +37,19 @@ class SplashScreenViewController: BaseViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if let data = UserDefaults.standard.data(forKey: "appUser"){
-            if let user = NSKeyedUnarchiver.unarchiveObject(with: data) as? UserModel{
-                appUser  = user
+        appUser = UserModel()
+        appUser?.getUserAUTHData()
+        if appUser?.userOATHTokenSecret != ""{
                 twitterClient = STTwitterAPI(oAuthConsumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: appUser?.userOATHToken, oauthTokenSecret: appUser?.userOATHTokenSecret)
                 
-                twitterClient.verifyCredentials(userSuccessBlock: { (username, userID) in
+                twitterClient.verifyCredentials(userSuccessBlock: { (screenName, userID) in
+                    appUser?.userID = userID!
+                    appUser?.userName = screenName!
                     self.openHomeScreen()
                 }, errorBlock: { (error) in
                     self.openLoginScreen()
                 })
-                
-            }
+            
         }else{
             self.openLoginScreen()
         }

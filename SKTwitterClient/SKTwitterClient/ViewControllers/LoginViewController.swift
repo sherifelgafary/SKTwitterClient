@@ -41,8 +41,7 @@ class LoginViewController: BaseViewController {
             appUser?.userScreenName = screenName!
             appUser?.userID = userID!
             
-            let encodedData = NSKeyedArchiver.archivedData(withRootObject: appUser!)
-            UserDefaults.standard.set(encodedData, forKey: "appUser")
+            appUser?.saveUserAUTHData()
             
             self.redirectUserToHomeScreen()
         }, errorBlock: { (error) in
