@@ -8,6 +8,7 @@
 
 import UIKit
 import STTwitter
+import SVPullToRefresh
 
 enum DevicOriantation {
     case LandScape
@@ -21,7 +22,8 @@ class HomeViewController: BaseViewController {
     var followersCurrentPage = "-1"
     let followersPageSize = "5"
     var currentOriantation:DevicOriantation = UIDevice.current.orientation.isLandscape ? .LandScape:.Portrait
-    
+    var isRefreshing = false
+
     override class func instance()->HomeViewController {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         return storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
@@ -39,7 +41,16 @@ class HomeViewController: BaseViewController {
         layout.estimatedItemSize = CGSize(width: 400, height: 100)
         followersCollectionView.collectionViewLayout = layout
         
+        self.followersCollectionView.addPullToRefresh {
+            self.followersCurrentPage = "-1"
+            self.isRefreshing = true
+            self.getFollowersList()
+        }
+        self.followersCollectionView.addInfiniteScrolling {
+            self.getFollowersList()
+        }
         self.getFollowersList()
+        
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -59,6 +70,16 @@ class HomeViewController: BaseViewController {
             }else{
                 self.followers.append(contentsOf: dataArray)
             }
+            self.isRefreshing = false
+            
+            if dataArray.count == 0{
+                self.followersCollectionView.showsInfiniteScrolling = false
+            }else{
+                self.followersCollectionView.showsInfiniteScrolling = true
+                self.followersCollectionView.infiniteScrollingView.stopAnimating()
+            }
+            
+            self.followersCollectionView.pullToRefreshView.stopAnimating()
             self.followersCurrentPage = nextPage
             self.followersCollectionView.reloadData()
         }
