@@ -18,26 +18,39 @@ class SplashScreenViewController: BaseViewController {
         
     }
     
+    func openHomeScreen() {
+        let homeVC = HomeViewController.instance()
+        homeVC.showSplashAnimation = true
+        homeVC.splashIconSize = self.twitterIconImageView.frame.size
+        
+        let nav = UINavigationController(rootViewController: homeVC)
+        nav.navigationBar.isTranslucent = false
+        nav.navigationBar.barTintColor = appBlueColor
+        replaceCurrentVisableViewControllerWithViewController(viewController: nav)
+    }
+    
+    func openLoginScreen() {
+        let loginVC = LoginViewController.instance()
+        loginVC.showSplashAnimation = true
+        loginVC.splashIconSize = twitterIconImageView.frame.size
+        replaceCurrentVisableViewControllerWithViewController(viewController: loginVC)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         if let data = UserDefaults.standard.data(forKey: "appUser"){
             if let user = NSKeyedUnarchiver.unarchiveObject(with: data) as? UserModel{
                 appUser  = user
                 twitterClient = STTwitterAPI(oAuthConsumerKey: consumerKey, consumerSecret: consumerSecret, oauthToken: appUser?.userOATHToken, oauthTokenSecret: appUser?.userOATHTokenSecret)
                 
-                let homeVC = HomeViewController.instance()
-                homeVC.showSplashAnimation = true
-                homeVC.splashIconSize = twitterIconImageView.frame.size
+                twitterClient.verifyCredentials(userSuccessBlock: { (username, userID) in
+                    self.openHomeScreen()
+                }, errorBlock: { (error) in
+                    self.openLoginScreen()
+                })
                 
-                let nav = UINavigationController(rootViewController: homeVC)
-                nav.navigationBar.isTranslucent = false
-                nav.navigationBar.barTintColor = appBlueColor
-                replaceCurrentVisableViewControllerWithViewController(viewController: nav)
             }
         }else{
-            let loginVC = LoginViewController.instance()
-            loginVC.showSplashAnimation = true
-            loginVC.splashIconSize = twitterIconImageView.frame.size
-            replaceCurrentVisableViewControllerWithViewController(viewController: loginVC)
+            self.openLoginScreen()
         }
     }
     
