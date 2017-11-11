@@ -9,6 +9,7 @@
 import UIKit
 import GSKStretchyHeaderView
 import AFNetworking
+import Agrume
 
 class UserProfileDataHeaderView: GSKStretchyHeaderView {
     @IBOutlet weak var backgroundImageView: UIImageView!
@@ -34,7 +35,7 @@ class UserProfileDataHeaderView: GSKStretchyHeaderView {
         self.userImage.alpha = alpha;
         self.userNameLabel.alpha = alpha;
         self.userHandleLabel.alpha = alpha;
-//        self.backgroundImageView.alpha = alpha;
+        //        self.backgroundImageView.alpha = alpha;
         let navTitleFactor:CGFloat = 0.4;
         var navTitleAlpha:CGFloat = 0;
         if (stretchFactor < navTitleFactor) {
@@ -47,9 +48,22 @@ class UserProfileDataHeaderView: GSKStretchyHeaderView {
     }
     
     @IBAction func profileImageTapped(sender: UIButton) {
+        self.openImageInOverLayView(imageUrl: (self.userObject?.userProfileImageUrl)!)
     }
+    
     @IBAction func profileHeaderTapped(sender: UIButton) {
+        self.openImageInOverLayView(imageUrl: (self.userObject?.userProfileCoverImageUrl)!)
     }
+    
+    func openImageInOverLayView(imageUrl:String)  {
+        if let url = URL(string:imageUrl) {
+            let agrume = Agrume(imageUrl: url, backgroundBlurStyle: UIBlurEffectStyle.light, backgroundColor: .clear)
+            agrume.showFrom(self.parentVC!)
+        }else{
+            alertWithTitleInViewController(self.parentVC!, title: "Alert", message: "Image Url not avilable")
+        }
+    }
+    
     func bindHeaderWithUserObject(user:UserModel,parentVcObject:UIViewController)  {
         self.userObject = user
         self.parentVC = parentVcObject
@@ -63,13 +77,13 @@ class UserProfileDataHeaderView: GSKStretchyHeaderView {
         }else{
             self.userImage.image = UIImage(named:"Temp")
         }
-
+        
         if let imageUrl = URL(string: user.userProfileCoverImageUrl) {
             self.backgroundImageView.setImageWith( imageUrl, placeholderImage: UIImage(named:"Temp"))
         }else{
             self.backgroundImageView.image = UIImage(named:"Temp")
         }
-
+        
     }
-
+    
 }
