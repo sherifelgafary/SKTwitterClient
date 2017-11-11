@@ -199,6 +199,11 @@ extension HomeViewController : UICollectionViewDataSource,UICollectionViewDelega
         return cell!
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let userVC = UserDetailsViewController.instance()
+        userVC.userObject = self.followers[indexPath.row]
+        self.navigationController?.pushViewController(userVC, animated: true)
+    }
 }
 
 extension HomeViewController : STTwitterAPIOSProtocol{
