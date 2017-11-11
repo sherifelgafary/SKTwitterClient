@@ -43,7 +43,7 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.setupCollectionView()
         self.getFollowersList()
     }
@@ -100,8 +100,6 @@ class HomeViewController: BaseViewController {
         }
         self.accountStore.requestAccessToAccounts(with: accountType, options: nil, completion: accountStoreRequestCompletionHandler)
     }
-    
-    
     
     func showAccountsList()  {
         var userNames = [String]()

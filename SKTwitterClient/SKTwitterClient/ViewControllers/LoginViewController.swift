@@ -8,6 +8,7 @@
 
 import UIKit
 import STTwitter
+import Accounts
 
 class LoginViewController: BaseViewController {
     override class func instance()->LoginViewController{
@@ -34,6 +35,7 @@ class LoginViewController: BaseViewController {
         
         let verifier = notification.userInfo!["oauth_verifier"] as? String ?? ""
         
+        
         twitterClient?.postAccessTokenRequest(withPIN: verifier, successBlock: { (oauthToken, oauthTokenSecret, userID, screenName) in
             appUser = UserModel()
             appUser?.userOATHToken = oauthToken!
@@ -43,7 +45,18 @@ class LoginViewController: BaseViewController {
             
             appUser?.saveUserAUTHData()
             
-            self.redirectUserToHomeScreen()
+            let accountStore = ACAccountStore()
+            let accountType = accountStore.accountType(withAccountTypeIdentifier: ACAccountTypeIdentifierTwitter)
+            let deviceToSaveAccount = ACAccount(accountType: accountType)
+            deviceToSaveAccount?.credential = ACAccountCredential(oAuthToken: oauthToken, tokenSecret: oauthTokenSecret)
+            deviceToSaveAccount?.username = screenName
+            accountStore.saveAccount(deviceToSaveAccount, withCompletionHandler: { (saved, error) in
+                DispatchQueue.main.async {
+                    self.redirectUserToHomeScreen()
+                }
+            
+            })
+            
         }, errorBlock: { (error) in
             alertWithTitleInViewController(self, title: "Alert", message: (error?.localizedDescription)!)
         })
