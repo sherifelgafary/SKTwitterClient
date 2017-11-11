@@ -25,6 +25,39 @@ var loader:UIView?
 var animationView:LOTAnimationView? = LOTAnimationView(name: "cloud")
 
 
+enum ApplicationLanguage{
+    case ar
+    case en
+}
+
+func setAppLanguage(lang:String) {
+    UserDefaults.standard.set([lang], forKey: "AppleLanguages")
+    UserDefaults.standard.synchronize()
+    exit(0)
+}
+
+func getCurrentLanguage() -> ApplicationLanguage {
+    let languages = UserDefaults.standard.object(forKey: "AppleLanguages") as? Array<String>
+    
+    if languages![0].contains("ar") == true
+    {
+        return ApplicationLanguage.ar
+    }
+    else
+    {
+        return ApplicationLanguage.en
+    }
+    
+}
+
+extension String{
+    func localized() -> String {
+        return NSLocalizedString(self, comment: "")
+    }
+}
+
+
+
 func showLoader(view:UIView)  {
     if loader == nil {
         animationView = LOTAnimationView(name: "cloud")
@@ -38,7 +71,7 @@ func showLoader(view:UIView)  {
         animationView?.play()
         animationView?.loopAnimation = true
         let loadingLabel = UILabel(frame: CGRect(x: 0, y: (animationView?.frame.height)! + (animationView?.frame.origin.y)!, width: view.frame.width, height: 40))
-        loadingLabel.text = "Loading..."
+        loadingLabel.text = "Loading...".localized()
         loadingLabel.font = UIFont.boldSystemFont(ofSize: 16)
         loadingLabel.textAlignment  = .center
         loadingLabel.textColor = .white
@@ -115,7 +148,7 @@ func replaceCurrentVisableViewControllerWithViewController(viewController:UIView
 
 func alertWithTitleInViewController(_ viewController:UIViewController, title: String, message: String) {
     let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+    alert.addAction(UIAlertAction(title: "OK".localized(), style: .default, handler: nil))
     
     viewController.present(alert, animated: true, completion: nil)
 }

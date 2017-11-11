@@ -25,7 +25,7 @@ class AuthenticationWebViewViewController: BaseViewController {
 
     @IBAction func CancelAuthontication(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true) {
-            
+            dissmissLoader()
         }
     }
 }

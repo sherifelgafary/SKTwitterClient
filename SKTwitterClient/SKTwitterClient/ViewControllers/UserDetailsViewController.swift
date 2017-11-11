@@ -68,7 +68,7 @@ class UserDetailsViewController: BaseViewController {
             self.dataLoaded = true
             dissmissLoader()
             if success == false{
-                alertWithTitleInViewController(self, title: "Alert", message: message)
+                alertWithTitleInViewController(self, title: "Alert".localized(), message: message)
             }
             self.userDataTableView.reloadData()
         })

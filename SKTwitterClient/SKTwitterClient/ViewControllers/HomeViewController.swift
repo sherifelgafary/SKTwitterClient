@@ -72,9 +72,16 @@ class HomeViewController: BaseViewController {
             self.isLoading = true
             self.getFollowersList()
         }
+        
         self.followersCollectionView.pullToRefreshView.arrowColor = .white
         self.followersCollectionView.pullToRefreshView.textColor = .white
+        self.followersCollectionView.pullToRefreshView.setTitle("Pull to refresh...".localized(), forState: 0)
+        self.followersCollectionView.pullToRefreshView.setTitle("Release to refresh...".localized(), forState: 1)
+        self.followersCollectionView.pullToRefreshView.setTitle("Loading...".localized(), forState: 2)
+        
+        
         self.followersCollectionView.pullToRefreshView.activityIndicatorViewStyle = .white
+        
         
         self.followersCollectionView.addInfiniteScrolling {
             self.getFollowersList()
@@ -92,7 +99,10 @@ class HomeViewController: BaseViewController {
     func setupNavigationBarItems()  {
         let logOutButton = UIBarButtonItem(image: UIImage(named:"ico_logout"), style: .plain, target: self, action: #selector(HomeViewController.logout(_:)))
         self.navigationItem.leftBarButtonItem = logOutButton
-        
+
+        let changeLanguageButton = UIBarButtonItem(image: UIImage(named:"settings"), style: .plain, target: self, action: #selector(HomeViewController.changeLanguage(_:)))
+        self.navigationItem.rightBarButtonItem = changeLanguageButton
+
         currentAccountButton = UIButton(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width , height: 44))
         currentAccountButton?.setTitleColor(.white, for: .normal)
         currentAccountButton?.setTitle("@" + (appUser?.userScreenName)!, for: .normal)
@@ -107,7 +117,7 @@ class HomeViewController: BaseViewController {
         let accountStoreRequestCompletionHandler = { (granted:Bool,error:Error?) in
             OperationQueue.main.addOperation {
                 if granted == false{
-                    alertWithTitleInViewController(self, title: "Alert", message: "Twitter accounts access not granted, please add accounts permision to proceed")
+                    alertWithTitleInViewController(self, title: "Alert".localized(), message: "Twitter accounts access not granted, please add accounts permision to proceed".localized())
                     return
                 }
                 self.deviceTwitterAccounts = self.accountStore.accounts(with: accountType) as! [ACAccount]
@@ -127,7 +137,7 @@ class HomeViewController: BaseViewController {
             index = selectedIndex
         }
         
-        ActionSheetStringPicker.show(withTitle: "User accounts", rows: userNames, initialSelection: index, doneBlock: { (picker, index, value) in
+        ActionSheetStringPicker.show(withTitle: "User accounts".localized(), rows: userNames, initialSelection: index, doneBlock: { (picker, index, value) in
             self.SwitchAccount(index)
         }, cancel: { (picker) in
             
@@ -144,7 +154,7 @@ class HomeViewController: BaseViewController {
             self.followersCollectionView.collectionViewLayout.invalidateLayout()
             self.getFollowersList()
         }, errorBlock: { (error) in
-            alertWithTitleInViewController(self, title: "Title", message: (error?.localizedDescription)!)
+            alertWithTitleInViewController(self, title: "Alert".localized(), message: (error?.localizedDescription)!)
         })
     }
     
@@ -154,7 +164,34 @@ class HomeViewController: BaseViewController {
         let loginVC = LoginViewController.instance()
         replaceCurrentVisableViewControllerWithViewController(viewController: loginVC)
     }
-    
+
+    @objc func changeLanguage(_ sender: UIButton)  {
+        let languages = ["العربية","English"]
+        let langDic = ["ar","en"]
+        
+        
+        ActionSheetStringPicker.show(withTitle: "Select app language".localized(), rows: languages, initialSelection: 0, doneBlock: { (picker, selectedIndex, selectedValue) in
+            let selectedLangCode = langDic[selectedIndex]
+            
+            if selectedLangCode == "\(getCurrentLanguage())" {
+                return
+            }else{
+                let alert = UIAlertController(title: "Application Restart".localized() , message: "The Application will quit, restart it with the new language".localized(), preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title:"OK".localized(), style: UIAlertActionStyle.default, handler: { (action:UIAlertAction) in
+                    setAppLanguage(lang: selectedLangCode)
+                }))
+                let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel".localized(), style: .cancel) { action -> Void in
+                }
+                alert.addAction(cancelActionButton)
+                self.present(alert, animated: true, completion: nil)
+            }
+            
+        }, cancel: { (picker) in
+            
+        }, origin: self.view)
+
+    }
+
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         if UIDevice.current.orientation.isLandscape {
             self.currentOriantation = .LandScape

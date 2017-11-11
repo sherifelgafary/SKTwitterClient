@@ -39,7 +39,7 @@ class TweetsModel: BaseDataModel {
                 }
                 completion(tweetsArray,"")
             }else{
-                completion([],"error happened please try again later")
+                completion([],"error happened please try again later".localized())
             }
             
         }) { (error) in

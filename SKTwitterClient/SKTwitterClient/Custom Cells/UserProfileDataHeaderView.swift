@@ -60,7 +60,7 @@ class UserProfileDataHeaderView: GSKStretchyHeaderView {
             let agrume = Agrume(imageUrl: url, backgroundBlurStyle: UIBlurEffectStyle.light, backgroundColor: .clear)
             agrume.showFrom(self.parentVC!)
         }else{
-            alertWithTitleInViewController(self.parentVC!, title: "Alert", message: "Image Url not avilable")
+            alertWithTitleInViewController(self.parentVC!, title: "Alert".localized(), message: "Image Url not avilable".localized())
         }
     }
     

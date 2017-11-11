@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  SKTwitterClient
+
+  Created by sherif Khaled on 11/11/17.
+  Copyright © 2017 SherifKhaled. All rights reserved.
+*/
+"Alert"="إنذار";
+"Image Url not avilable"="عنوان الصورة غير متاح";
+"Please authorize app for your twitter account to login"="يرجى تفويض التطبيق لحساب تويتر الخاص بك للدخول";
+"Twitter accounts access not granted, please add accounts permision to proceed"="لم يتم منح الوصول إلى حسابات تويتر، يرجى إضافة إذن للحسابات للمتابعة";
+"User accounts"="حسابات المستخدم";
+"Select app language"="حدد لغة التطبيق";
+"Application Restart"="إعادة تشغيل التطبيق";
+"The Application will quit, restart it with the new language"="سيتم إنهاء التطبيق، إعادة تشغيله مع اللغة الجديدة";
+"OK"="حسنا";
+"Cancel"="إلغاء";
+"error happened please try again later"="حدث خطأ الرجاء إعادة المحاولة لاحقا";
+"Loading..."="جار التحميل...";
+"Pull to refresh..."="اسحب للتحديث...";
+"Release to refresh..."="اترك للتحديث ...";

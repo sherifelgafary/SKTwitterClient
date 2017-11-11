@@ -27,7 +27,7 @@ class LoginViewController: BaseViewController {
     @objc func handleAuthonticationFailure(_ notification: NSNotification) {
         self.dismiss(animated: true) {
             dissmissLoader()
-            alertWithTitleInViewController(self, title: "Alert", message: "Please authorize app for your twitter account to login")
+            alertWithTitleInViewController(self, title: "Alert".localized(), message: "Please authorize app for your twitter account to login".localized())
         }
     }
     
@@ -61,7 +61,7 @@ class LoginViewController: BaseViewController {
             
         }, errorBlock: { (error) in
             dissmissLoader()
-            alertWithTitleInViewController(self, title: "Alert", message: (error?.localizedDescription)!)
+            alertWithTitleInViewController(self, title: "Alert".localized(), message: (error?.localizedDescription)!)
         })
     }
     
@@ -77,7 +77,7 @@ class LoginViewController: BaseViewController {
             })
         }, oauthCallback: "SKTwitterClient://twitter_access_tokens/", errorBlock: { (error) in
             dissmissLoader()
-            alertWithTitleInViewController(self, title: "Alert", message: (error?.localizedDescription)!)
+            alertWithTitleInViewController(self, title: "Alert".localized(), message: (error?.localizedDescription)!)
         })
     }
     
