@@ -72,7 +72,13 @@ class HomeViewController: BaseViewController {
         }
         self.followersCollectionView.infiniteScrollingView.activityIndicatorViewStyle = .white
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = false
+    }
     func setupNavigationBarItems()  {
         let logOutButton = UIBarButtonItem(image: UIImage(named:"ico_logout"), style: .plain, target: self, action: #selector(HomeViewController.logout(_:)))
         self.navigationItem.leftBarButtonItem = logOutButton

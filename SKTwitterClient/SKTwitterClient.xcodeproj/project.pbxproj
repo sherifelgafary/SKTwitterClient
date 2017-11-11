@@ -11,6 +11,7 @@
 		8AA7D28E1FB6880A002D6FF9 /* UserProfileDataHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA7D28D1FB6880A002D6FF9 /* UserProfileDataHeaderView.swift */; };
 		8AA7D2901FB6884E002D6FF9 /* UserTweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA7D28F1FB6884E002D6FF9 /* UserTweetTableViewCell.swift */; };
 		8AA7D2921FB68F01002D6FF9 /* UserProfileDataHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AA7D2911FB68B76002D6FF9 /* UserProfileDataHeaderView.xib */; };
+		8AA7D2941FB6BF55002D6FF9 /* TweetsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA7D2931FB6BF55002D6FF9 /* TweetsModel.swift */; };
 		8AE5C6E11FB3D36D00785971 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5C6E01FB3D36D00785971 /* AppDelegate.swift */; };
 		8AE5C6E61FB3D36D00785971 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AE5C6E41FB3D36D00785971 /* Main.storyboard */; };
 		8AE5C6E81FB3D36D00785971 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AE5C6E71FB3D36D00785971 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 		8AA7D28D1FB6880A002D6FF9 /* UserProfileDataHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileDataHeaderView.swift; sourceTree = "<group>"; };
 		8AA7D28F1FB6884E002D6FF9 /* UserTweetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTweetTableViewCell.swift; sourceTree = "<group>"; };
 		8AA7D2911FB68B76002D6FF9 /* UserProfileDataHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileDataHeaderView.xib; sourceTree = "<group>"; };
+		8AA7D2931FB6BF55002D6FF9 /* TweetsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetsModel.swift; sourceTree = "<group>"; };
 		8AE5C6DD1FB3D36D00785971 /* SKTwitterClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKTwitterClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AE5C6E01FB3D36D00785971 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AE5C6E51FB3D36D00785971 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			children = (
 				8AE5C7011FB4172500785971 /* BaseDataModel.swift */,
 				8AE5C7031FB4173700785971 /* UserModel.swift */,
+				8AA7D2931FB6BF55002D6FF9 /* TweetsModel.swift */,
 			);
 			path = "Data Models";
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AE5C6FC1FB3FBDD00785971 /* LoginViewController.swift in Sources */,
+				8AA7D2941FB6BF55002D6FF9 /* TweetsModel.swift in Sources */,
 				8AE5C70E1FB53A4B00785971 /* FollwerGridStyleCollectionViewCell.swift in Sources */,
 				8A2ACDE61FB6805D00D5B621 /* UserDetailsViewController.swift in Sources */,
 				8AE5C7041FB4173700785971 /* UserModel.swift in Sources */,

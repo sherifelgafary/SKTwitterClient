@@ -9,5 +9,9 @@
 import UIKit
 
 class BaseDataModel: NSObject {
+    
+    class func getModelObjectFromAPIDictionary(dataDictionary:[String:AnyObject]) -> BaseDataModel{
+        assert(false, "This method must be overriden by the subclass")
+    }
 
 }

@@ -21,8 +21,9 @@ class UserModel: BaseDataModel, NSCoding {
     var userBio = ""
     var userProfileCoverImageUrl = ""
     var userProfileImageUrl = ""
+    var tweets = [TweetsModel]()
     
-    class func getModelObjectFromAPIDictionary(dataDictionary:[String:AnyObject]) -> UserModel{
+    override class func getModelObjectFromAPIDictionary(dataDictionary:[String:AnyObject]) -> UserModel{
         let user = UserModel()
         user.userID = dataDictionary["id"] as? String ?? ""
         user.userName = dataDictionary["name"] as? String ?? ""
@@ -32,6 +33,7 @@ class UserModel: BaseDataModel, NSCoding {
         user.userProfileImageUrl = dataDictionary["profile_image_url_https"] as? String ?? ""
         return user
     }
+    
     override init() {
     }
     
@@ -101,6 +103,17 @@ class UserModel: BaseDataModel, NSCoding {
                 }
             }
             completion(followers, "", currentPage)
+        }
+    }
+    
+    func getMyLatestTweetsList(pageSize:String ,completion:@escaping (_ success:Bool,_ message:String)-> Void) {
+        TweetsModel.getTweetsListForUserScreenName(userScreenName: self.userScreenName, "10") { (tweetsArray, message) in
+            var success = false
+            if message == ""{
+                success = true
+            }
+            self.tweets = tweetsArray
+            completion(success,message)
         }
     }
     
