@@ -28,9 +28,8 @@ class UserDetailsViewController: BaseViewController {
         self.setUpUserDataTableView()
         self.getLatestTweets()
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
@@ -56,7 +55,9 @@ class UserDetailsViewController: BaseViewController {
     }
     
     func getLatestTweets()  {
+        showLoader(view: self.view)
         self.userObject?.getMyLatestTweetsList(pageSize: "10", completion: { (success, message) in
+            dissmissLoader()
             if success == false{
                 alertWithTitleInViewController(self, title: "Alert", message: message)
             }

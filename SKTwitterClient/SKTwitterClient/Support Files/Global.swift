@@ -9,6 +9,7 @@
 import UIKit
 import STTwitter
 import SystemConfiguration
+import Lottie
 
 
 
@@ -19,6 +20,44 @@ let delegate = UIApplication.shared.delegate as? AppDelegate
 
 var appUser:UserModel?
 var twitterClient:STTwitterAPI!
+
+var loader:UIView?
+var animationView:LOTAnimationView? = LOTAnimationView(name: "cloud")
+
+
+func showLoader(view:UIView)  {
+    if loader == nil {
+        animationView = LOTAnimationView(name: "cloud")
+        loader = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height+64))
+        loader?.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.4)
+        loader?.isUserInteractionEnabled = true
+        animationView?.frame = CGRect(x: 0, y: 0, width: view.frame.width * 0.45, height: view.frame.width * 0.45)
+        animationView?.center = (loader?.center)!
+        animationView?.contentMode = .scaleAspectFit
+        loader?.addSubview(animationView!)
+        animationView?.play()
+        animationView?.loopAnimation = true
+        let loadingLabel = UILabel(frame: CGRect(x: 0, y: (animationView?.frame.height)! + (animationView?.frame.origin.y)!, width: view.frame.width, height: 40))
+        loadingLabel.text = "Loading..."
+        loadingLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        loadingLabel.textAlignment  = .center
+        loadingLabel.textColor = .white
+        loader?.addSubview(loadingLabel)
+        
+        view.addSubview(loader!)
+    }
+}
+
+
+func dissmissLoader(){
+    if loader != nil {
+        animationView?.stop()
+        loader?.removeFromSuperview()
+        animationView = nil
+        loader = nil
+    }
+    
+}
 
 
 func isConnectedToNetwork() -> Bool {

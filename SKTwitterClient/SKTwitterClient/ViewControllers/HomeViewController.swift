@@ -29,6 +29,7 @@ class HomeViewController: BaseViewController {
     var accountStore = ACAccountStore()
     var deviceTwitterAccounts = [ACAccount]()
     var currentAccountButton:UIButton?
+    var isLoading = false
     
     override class func instance()->HomeViewController {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -61,6 +62,7 @@ class HomeViewController: BaseViewController {
         
         self.followersCollectionView.addPullToRefresh {
             self.followersCurrentPage = "-1"
+            self.isLoading = true
             self.getFollowersList()
         }
         self.followersCollectionView.pullToRefreshView.arrowColor = .white
@@ -72,13 +74,12 @@ class HomeViewController: BaseViewController {
         }
         self.followersCollectionView.infiniteScrollingView.activityIndicatorViewStyle = .white
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
     }
+    
     func setupNavigationBarItems()  {
         let logOutButton = UIBarButtonItem(image: UIImage(named:"ico_logout"), style: .plain, target: self, action: #selector(HomeViewController.logout(_:)))
         self.navigationItem.leftBarButtonItem = logOutButton
@@ -157,7 +158,13 @@ class HomeViewController: BaseViewController {
     
     
     func getFollowersList()  {
+        if self.followersCurrentPage == "-1" && self.isLoading == false{
+            showLoader(view: self.view)
+        }
+        
         UserModel.getFollowersList(currentPage: followersCurrentPage, pageSize: followersPageSize) { (dataArray, msg, nextPage) in
+            dissmissLoader()
+
             if self.followersCurrentPage == "-1"{
                 self.followers = dataArray
             }else{
@@ -174,6 +181,7 @@ class HomeViewController: BaseViewController {
             let encodedData = NSKeyedArchiver.archivedData(withRootObject: self.followers)
             UserDefaults.standard.set(encodedData, forKey: "followers")
             
+            self.isLoading = false
             
             self.followersCollectionView.pullToRefreshView.stopAnimating()
             self.followersCurrentPage = nextPage

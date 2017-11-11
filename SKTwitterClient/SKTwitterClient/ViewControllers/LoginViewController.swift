@@ -26,6 +26,7 @@ class LoginViewController: BaseViewController {
     
     @objc func handleAuthonticationFailure(_ notification: NSNotification) {
         self.dismiss(animated: true) {
+            dissmissLoader()
             alertWithTitleInViewController(self, title: "Alert", message: "Please authorize app for your twitter account to login")
         }
     }
@@ -52,55 +53,30 @@ class LoginViewController: BaseViewController {
             deviceToSaveAccount?.username = screenName
             accountStore.saveAccount(deviceToSaveAccount, withCompletionHandler: { (saved, error) in
                 DispatchQueue.main.async {
+                    dissmissLoader()
                     self.redirectUserToHomeScreen()
                 }
             
             })
             
         }, errorBlock: { (error) in
+            dissmissLoader()
             alertWithTitleInViewController(self, title: "Alert", message: (error?.localizedDescription)!)
         })
     }
     
-//    func getUserBannarImage()  {
-//        twitterClient.getUsersProfileBanner(forUserID: appUser?.userID, orScreenName: appUser?.userScreenName, successBlock: { (response) in
-//
-//            appUser?.userProfileCoverImageUrl = ""
-//            if let result = response as? [String:AnyObject]{
-//                if let sizes = result["sizes"] as? [String:AnyObject]{
-//                    if let mobileRetina = sizes["mobile_retina"] as? [String:AnyObject] {
-//                        appUser?.userProfileCoverImageUrl = mobileRetina["url"] as? String ?? ""
-//                    }
-//                }
-//            }
-//
-//            self.getUserProfileImage()
-//        }, errorBlock: { (error) in
-//            appUser?.userProfileCoverImageUrl = ""
-//            self.getUserProfileImage()
-//        })
-//
-//    }
-//
-//    func getUserProfileImage()  {
-//        twitterClient.profileImage(for: appUser?.userScreenName, successBlock: { (result) in
-//            appUser?.userProfileImageObject = result as? UIImage ?? UIImage(named:"Temp")
-//            self.redirectUserToHomeScreen()
-//        }, errorBlock: { (error) in
-//            appUser?.userProfileImageObject = UIImage(named:"Temp")
-//            self.redirectUserToHomeScreen()
-//        })
-//    }
     
     @IBAction func twitterLogin(_ sender: UIButton) {
         twitterClient = STTwitterAPI(oAuthConsumerKey: consumerKey, consumerSecret: consumerSecret)
         twitterClient?.postTokenRequest({ (url, oauthToken) in
+            showLoader(view: self.view)
             let authonticationWebView = AuthenticationWebViewViewController.instance()
             self.present(authonticationWebView , animated: true, completion: {
                 let authenticationRequest = URLRequest(url: url!)
                 authonticationWebView.webView.loadRequest(authenticationRequest)
             })
         }, oauthCallback: "SKTwitterClient://twitter_access_tokens/", errorBlock: { (error) in
+            dissmissLoader()
             alertWithTitleInViewController(self, title: "Alert", message: (error?.localizedDescription)!)
         })
     }

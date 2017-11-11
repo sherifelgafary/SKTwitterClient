@@ -25,26 +25,21 @@ class BaseViewController: UIViewController {
             self.animateSplashView()
         }
         if let VC = self as? HomeViewController {
-            if self.showSplashAnimation == false{
-                VC.setupNavigationBarItems()
-            }
+            VC.setupNavigationBarItems()
         }
     }
     
     func animateSplashView()  {
         revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "twitterIcon")!,iconInitialSize: self.splashIconSize, backgroundColor: appBlueColor!)
-        self.view.addSubview(revealingSplashView!)
-        
+        let window = UIApplication.shared.keyWindow
+        window?.addSubview(revealingSplashView!)
         revealingSplashView?.animationType = SplashAnimationType.popAndZoomOut
         
         revealingSplashView?.startAnimation(){
-            if let VC = self as? HomeViewController {
-                VC.setupNavigationBarItems()
-            }
             self.revealingSplashView?.removeFromSuperview()
             self.revealingSplashView = nil
         }
-
+        
     }
     
     

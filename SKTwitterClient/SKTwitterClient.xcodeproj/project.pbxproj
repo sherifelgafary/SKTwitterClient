@@ -12,6 +12,7 @@
 		8AA7D2901FB6884E002D6FF9 /* UserTweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA7D28F1FB6884E002D6FF9 /* UserTweetTableViewCell.swift */; };
 		8AA7D2921FB68F01002D6FF9 /* UserProfileDataHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AA7D2911FB68B76002D6FF9 /* UserProfileDataHeaderView.xib */; };
 		8AA7D2941FB6BF55002D6FF9 /* TweetsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA7D2931FB6BF55002D6FF9 /* TweetsModel.swift */; };
+		8AA7D2961FB6E245002D6FF9 /* cloud.json in Resources */ = {isa = PBXBuildFile; fileRef = 8AA7D2951FB6E242002D6FF9 /* cloud.json */; };
 		8AE5C6E11FB3D36D00785971 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5C6E01FB3D36D00785971 /* AppDelegate.swift */; };
 		8AE5C6E61FB3D36D00785971 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AE5C6E41FB3D36D00785971 /* Main.storyboard */; };
 		8AE5C6E81FB3D36D00785971 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AE5C6E71FB3D36D00785971 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 		8AA7D28F1FB6884E002D6FF9 /* UserTweetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTweetTableViewCell.swift; sourceTree = "<group>"; };
 		8AA7D2911FB68B76002D6FF9 /* UserProfileDataHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileDataHeaderView.xib; sourceTree = "<group>"; };
 		8AA7D2931FB6BF55002D6FF9 /* TweetsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetsModel.swift; sourceTree = "<group>"; };
+		8AA7D2951FB6E242002D6FF9 /* cloud.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cloud.json; sourceTree = "<group>"; };
 		8AE5C6DD1FB3D36D00785971 /* SKTwitterClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKTwitterClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AE5C6E01FB3D36D00785971 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AE5C6E51FB3D36D00785971 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		8AE5C6F31FB3DA8400785971 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				8AA7D2951FB6E242002D6FF9 /* cloud.json */,
 				8AE5C6E01FB3D36D00785971 /* AppDelegate.swift */,
 				8AE5C6EC1FB3D36D00785971 /* Info.plist */,
 				8AE5C6FF1FB4100C00785971 /* Global.swift */,
@@ -234,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AE5C6FA1FB3EEFD00785971 /* Info.plist in Resources */,
+				8AA7D2961FB6E245002D6FF9 /* cloud.json in Resources */,
 				8AE5C6EB1FB3D36D00785971 /* LaunchScreen.storyboard in Resources */,
 				8AE5C6E81FB3D36D00785971 /* Assets.xcassets in Resources */,
 				8AE5C6E61FB3D36D00785971 /* Main.storyboard in Resources */,
@@ -278,6 +282,7 @@
 				"${BUILT_PRODUCTS_DIR}/RevealingSplashView/RevealingSplashView.framework",
 				"${BUILT_PRODUCTS_DIR}/STTwitter/STTwitter.framework",
 				"${BUILT_PRODUCTS_DIR}/SVPullToRefresh/SVPullToRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -289,6 +294,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealingSplashView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/STTwitter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVPullToRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
