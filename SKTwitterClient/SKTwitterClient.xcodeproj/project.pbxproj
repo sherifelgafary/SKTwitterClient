@@ -13,6 +13,7 @@
 		8AA7D2921FB68F01002D6FF9 /* UserProfileDataHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AA7D2911FB68B76002D6FF9 /* UserProfileDataHeaderView.xib */; };
 		8AA7D2941FB6BF55002D6FF9 /* TweetsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA7D2931FB6BF55002D6FF9 /* TweetsModel.swift */; };
 		8AA7D2961FB6E245002D6FF9 /* cloud.json in Resources */ = {isa = PBXBuildFile; fileRef = 8AA7D2951FB6E242002D6FF9 /* cloud.json */; };
+		8AA7D2981FB6E58A002D6FF9 /* empty_box.json in Resources */ = {isa = PBXBuildFile; fileRef = 8AA7D2971FB6E587002D6FF9 /* empty_box.json */; };
 		8AE5C6E11FB3D36D00785971 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5C6E01FB3D36D00785971 /* AppDelegate.swift */; };
 		8AE5C6E61FB3D36D00785971 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AE5C6E41FB3D36D00785971 /* Main.storyboard */; };
 		8AE5C6E81FB3D36D00785971 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AE5C6E71FB3D36D00785971 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 		8AA7D2911FB68B76002D6FF9 /* UserProfileDataHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileDataHeaderView.xib; sourceTree = "<group>"; };
 		8AA7D2931FB6BF55002D6FF9 /* TweetsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetsModel.swift; sourceTree = "<group>"; };
 		8AA7D2951FB6E242002D6FF9 /* cloud.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cloud.json; sourceTree = "<group>"; };
+		8AA7D2971FB6E587002D6FF9 /* empty_box.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = empty_box.json; sourceTree = "<group>"; };
 		8AE5C6DD1FB3D36D00785971 /* SKTwitterClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKTwitterClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AE5C6E01FB3D36D00785971 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AE5C6E51FB3D36D00785971 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 		8AE5C6F31FB3DA8400785971 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				8AA7D2971FB6E587002D6FF9 /* empty_box.json */,
 				8AA7D2951FB6E242002D6FF9 /* cloud.json */,
 				8AE5C6E01FB3D36D00785971 /* AppDelegate.swift */,
 				8AE5C6EC1FB3D36D00785971 /* Info.plist */,
@@ -242,6 +245,7 @@
 				8AE5C6E81FB3D36D00785971 /* Assets.xcassets in Resources */,
 				8AE5C6E61FB3D36D00785971 /* Main.storyboard in Resources */,
 				8AA7D2921FB68F01002D6FF9 /* UserProfileDataHeaderView.xib in Resources */,
+				8AA7D2981FB6E58A002D6FF9 /* empty_box.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +281,7 @@
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
 				"${BUILT_PRODUCTS_DIR}/Agrume/Agrume.framework",
+				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/GSKStretchyHeaderView/GSKStretchyHeaderView.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/RevealingSplashView/RevealingSplashView.framework",
@@ -289,6 +294,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheetPicker_3_0.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Agrume.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GSKStretchyHeaderView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealingSplashView.framework",

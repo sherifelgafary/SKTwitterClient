@@ -16,6 +16,7 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - Agrume (4.0.1)
+  - DZNEmptyDataSet (1.8.1)
   - GSKStretchyHeaderView (1.0.1)
   - KeychainAccess (3.1.0)
   - lottie-ios (2.1.3)
@@ -27,6 +28,7 @@ DEPENDENCIES:
   - ActionSheetPicker-3.0
   - AFNetworking
   - Agrume (from `https://github.com/JanGorman/Agrume.git`)
+  - DZNEmptyDataSet
   - GSKStretchyHeaderView
   - KeychainAccess
   - lottie-ios
@@ -47,6 +49,7 @@ SPEC CHECKSUMS:
   ActionSheetPicker-3.0: d11a4c12c6aaf704b8a3f56d179198c99f3e41e6
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Agrume: 48da75e55a64ba86f6d8645144aaf0231669bfba
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   GSKStretchyHeaderView: c7e7fddd73396764c9bd7aea81cf934af7f8afd2
   KeychainAccess: 94c5540b32eabf7bc32bfb976a268e8ea05fd6da
   lottie-ios: 8c150606598931621e927377f1426d2d3e99282d
@@ -54,6 +57,6 @@ SPEC CHECKSUMS:
   STTwitter: 30ee2f79eff78c3d633a1edc869e97db9c9ead59
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
 
-PODFILE CHECKSUM: 08e726a7e036973b82293704b70fbdaf7162de15
+PODFILE CHECKSUM: a54409ec71b37093cfed88dc45ecf892c3f42c41
 
 COCOAPODS: 1.3.1

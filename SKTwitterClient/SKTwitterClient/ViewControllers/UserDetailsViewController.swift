@@ -8,12 +8,15 @@
 
 import UIKit
 import GSKStretchyHeaderView
+import Lottie
+import DZNEmptyDataSet
 
 class UserDetailsViewController: BaseViewController {
     
     @IBOutlet weak var userDataTableView: UITableView!
     var userObject:UserModel?
     var stretchyHeaderView:UserProfileDataHeaderView?
+    var dataLoaded = false
     
     override class func instance()->UserDetailsViewController {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -36,6 +39,11 @@ class UserDetailsViewController: BaseViewController {
     }
     
     func setUpUserDataTableView() {
+        self.userDataTableView.tableFooterView = UIView()
+
+        self.userDataTableView.emptyDataSetSource = self
+        self.userDataTableView.emptyDataSetDelegate = self
+        
         self.userDataTableView.rowHeight = UITableViewAutomaticDimension
         self.userDataTableView.estimatedRowHeight = 50
         
@@ -54,9 +62,10 @@ class UserDetailsViewController: BaseViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    func getLatestTweets()  {
+    @objc func getLatestTweets()  {
         showLoader(view: self.view)
         self.userObject?.getMyLatestTweetsList(pageSize: "10", completion: { (success, message) in
+            self.dataLoaded = true
             dissmissLoader()
             if success == false{
                 alertWithTitleInViewController(self, title: "Alert", message: message)
@@ -66,7 +75,7 @@ class UserDetailsViewController: BaseViewController {
     }
 }
 
-extension UserDetailsViewController : UITableViewDataSource {
+extension UserDetailsViewController : UITableViewDataSource,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return  (self.userObject?.tweets.count)!
     }
@@ -77,4 +86,23 @@ extension UserDetailsViewController : UITableViewDataSource {
         cell?.bindCellWith(userObject: self.userObject!, tweetIndex: indexPath.row)
         return cell!
     }
+    
+    func customView(forEmptyDataSet scrollView: UIScrollView!) -> UIView! {
+        if self.dataLoaded {
+            let animationView = LOTAnimationView(name: "empty_box")
+            animationView.frame = CGRect(x: 0, y: 0, width: scrollView.frame.width * 0.45, height: scrollView.frame.width * 0.45)
+            animationView.center = (scrollView?.center)!
+            animationView.contentMode = .scaleAspectFit
+            animationView.play()
+            animationView.loopAnimation = true
+            return animationView
+        }else{
+            return UIView()
+        }
+    }
+
+    func emptyDataSet(_ scrollView: UIScrollView!, didTap view: UIView!) {
+        self.getLatestTweets()
+    }
+
 }

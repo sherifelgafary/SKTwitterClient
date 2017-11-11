@@ -11,6 +11,8 @@ import STTwitter
 import SVPullToRefresh
 import ActionSheetPicker_3_0
 import Accounts
+import DZNEmptyDataSet
+import Lottie
 
 enum DevicOriantation {
     case LandScape
@@ -30,6 +32,7 @@ class HomeViewController: BaseViewController {
     var deviceTwitterAccounts = [ACAccount]()
     var currentAccountButton:UIButton?
     var isLoading = false
+    var dataLoaded = false
     
     override class func instance()->HomeViewController {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -44,12 +47,16 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.setupCollectionView()
         self.getFollowersList()
     }
     
+    
+    
     func setupCollectionView() {
+        self.followersCollectionView.emptyDataSetSource = self
+        self.followersCollectionView.emptyDataSetDelegate = self
         let layout = UICollectionViewFlowLayout()
         
         if #available(iOS 10.0, *) {
@@ -74,6 +81,8 @@ class HomeViewController: BaseViewController {
         }
         self.followersCollectionView.infiniteScrollingView.activityIndicatorViewStyle = .white
     }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -164,7 +173,7 @@ class HomeViewController: BaseViewController {
         
         UserModel.getFollowersList(currentPage: followersCurrentPage, pageSize: followersPageSize) { (dataArray, msg, nextPage) in
             dissmissLoader()
-
+            self.dataLoaded = true
             if self.followersCurrentPage == "-1"{
                 self.followers = dataArray
             }else{
@@ -192,7 +201,7 @@ class HomeViewController: BaseViewController {
     
 }
 
-extension HomeViewController : UICollectionViewDataSource,UICollectionViewDelegate {
+extension HomeViewController : UICollectionViewDataSource,UICollectionViewDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.followers.count
@@ -218,6 +227,28 @@ extension HomeViewController : UICollectionViewDataSource,UICollectionViewDelega
         userVC.userObject = self.followers[indexPath.row]
         self.navigationController?.pushViewController(userVC, animated: true)
     }
+    
+    func customView(forEmptyDataSet scrollView: UIScrollView!) -> UIView! {
+        if self.dataLoaded {
+            let animationView = LOTAnimationView(name: "empty_box")
+            animationView.frame = CGRect(x: 0, y: 0, width: scrollView.frame.width * 0.45, height: scrollView.frame.width * 0.45)
+            animationView.center = (scrollView?.center)!
+            animationView.contentMode = .scaleAspectFit
+            animationView.play()
+            animationView.loopAnimation = true
+            return animationView
+        }else{
+            return UIView()
+        }
+    }
+    
+    func emptyDataSet(_ scrollView: UIScrollView!, didTap view: UIView!) {
+        self.followersCurrentPage = "-1"
+        self.isLoading = false
+        self.getFollowersList()
+    }
+    
+    
 }
 
 extension HomeViewController : STTwitterAPIOSProtocol{
