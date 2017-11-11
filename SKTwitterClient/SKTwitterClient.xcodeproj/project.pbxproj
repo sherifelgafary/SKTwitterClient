@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8A2ACDE61FB6805D00D5B621 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2ACDE51FB6805D00D5B621 /* UserDetailsViewController.swift */; };
+		8A47D68A1FB7C0580004F292 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A47D6891FB7C0530004F292 /* Assets.xcassets */; };
 		8AA7D28E1FB6880A002D6FF9 /* UserProfileDataHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA7D28D1FB6880A002D6FF9 /* UserProfileDataHeaderView.swift */; };
 		8AA7D2901FB6884E002D6FF9 /* UserTweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA7D28F1FB6884E002D6FF9 /* UserTweetTableViewCell.swift */; };
 		8AA7D2921FB68F01002D6FF9 /* UserProfileDataHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AA7D2911FB68B76002D6FF9 /* UserProfileDataHeaderView.xib */; };
@@ -17,7 +18,6 @@
 		8AA7D29D1FB703B9002D6FF9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8AA7D29F1FB703B9002D6FF9 /* Localizable.strings */; };
 		8AE5C6E11FB3D36D00785971 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5C6E01FB3D36D00785971 /* AppDelegate.swift */; };
 		8AE5C6E61FB3D36D00785971 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AE5C6E41FB3D36D00785971 /* Main.storyboard */; };
-		8AE5C6E81FB3D36D00785971 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AE5C6E71FB3D36D00785971 /* Assets.xcassets */; };
 		8AE5C6EB1FB3D36D00785971 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AE5C6E91FB3D36D00785971 /* LaunchScreen.storyboard */; };
 		8AE5C6F91FB3DAED00785971 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE5C6F81FB3DAED00785971 /* SplashScreenViewController.swift */; };
 		8AE5C6FA1FB3EEFD00785971 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AE5C6EC1FB3D36D00785971 /* Info.plist */; };
@@ -36,6 +36,7 @@
 /* Begin PBXFileReference section */
 		1D287F21588E9ECE2EBDAC1E /* Pods-SKTwitterClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKTwitterClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SKTwitterClient/Pods-SKTwitterClient.debug.xcconfig"; sourceTree = "<group>"; };
 		8A2ACDE51FB6805D00D5B621 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
+		8A47D6891FB7C0530004F292 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8AA7D28D1FB6880A002D6FF9 /* UserProfileDataHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileDataHeaderView.swift; sourceTree = "<group>"; };
 		8AA7D28F1FB6884E002D6FF9 /* UserTweetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTweetTableViewCell.swift; sourceTree = "<group>"; };
 		8AA7D2911FB68B76002D6FF9 /* UserProfileDataHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileDataHeaderView.xib; sourceTree = "<group>"; };
@@ -49,7 +50,6 @@
 		8AE5C6DD1FB3D36D00785971 /* SKTwitterClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKTwitterClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AE5C6E01FB3D36D00785971 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AE5C6E51FB3D36D00785971 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8AE5C6E71FB3D36D00785971 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8AE5C6EA1FB3D36D00785971 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8AE5C6EC1FB3D36D00785971 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AE5C6F81FB3DAED00785971 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
@@ -104,9 +104,9 @@
 				8AE5C6F31FB3DA8400785971 /* Support Files */,
 				8AE5C6F21FB3DA7500785971 /* ViewControllers */,
 				8AE5C6E41FB3D36D00785971 /* Main.storyboard */,
-				8AE5C6E71FB3D36D00785971 /* Assets.xcassets */,
 				8AE5C6E91FB3D36D00785971 /* LaunchScreen.storyboard */,
 				8AA7D29F1FB703B9002D6FF9 /* Localizable.strings */,
+				8A47D6891FB7C0530004F292 /* Assets.xcassets */,
 			);
 			path = SKTwitterClient;
 			sourceTree = "<group>";
@@ -241,10 +241,10 @@
 				8AE5C6FA1FB3EEFD00785971 /* Info.plist in Resources */,
 				8AA7D2961FB6E245002D6FF9 /* cloud.json in Resources */,
 				8AE5C6EB1FB3D36D00785971 /* LaunchScreen.storyboard in Resources */,
-				8AE5C6E81FB3D36D00785971 /* Assets.xcassets in Resources */,
 				8AE5C6E61FB3D36D00785971 /* Main.storyboard in Resources */,
 				8AA7D29D1FB703B9002D6FF9 /* Localizable.strings in Resources */,
 				8AA7D2921FB68F01002D6FF9 /* UserProfileDataHeaderView.xib in Resources */,
+				8A47D68A1FB7C0580004F292 /* Assets.xcassets in Resources */,
 				8AA7D2981FB6E58A002D6FF9 /* empty_box.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

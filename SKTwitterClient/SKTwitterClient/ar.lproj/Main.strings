@@ -34,3 +34,7 @@
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "z5x-44-aSe"; */
 "z5x-44-aSe.text" = "Label";
+
+
+/* Class = "UIButton"; normalTitle = "Google"; ObjectID = "YhC-ac-0w9"; */
+"BPj-Tq-rVY.normalTitle" = "تسجيل الدخول باستخدام تويتر";
