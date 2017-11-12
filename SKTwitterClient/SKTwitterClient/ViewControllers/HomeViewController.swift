@@ -64,7 +64,7 @@ class HomeViewController: BaseViewController {
         } else {
         }
         
-        layout.estimatedItemSize = CGSize(width: 400, height: 100)
+        layout.estimatedItemSize = CGSize(width: 300, height: 300)
         followersCollectionView.collectionViewLayout = layout
         
         self.followersCollectionView.addPullToRefresh {
@@ -243,7 +243,7 @@ class HomeViewController: BaseViewController {
     
 }
 
-extension HomeViewController : UICollectionViewDataSource,UICollectionViewDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate {
+extension HomeViewController : UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.followers.count
@@ -261,7 +261,12 @@ extension HomeViewController : UICollectionViewDataSource,UICollectionViewDelega
         cell?.backgroundColor = .clear
         cell?.bindWithFollowerObject(follower: self.followers[indexPath.row])
         cell?.layoutIfNeeded()
+        
         return cell!
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 300, height: 300)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -289,6 +294,7 @@ extension HomeViewController : UICollectionViewDataSource,UICollectionViewDelega
         self.isLoading = false
         self.getFollowersList()
     }
+    
     
     
 }
