@@ -24,6 +24,13 @@ class TweetsModel: BaseDataModel {
         let oldDate = dateFormatter.date(from: tweet.tweetTiming)!
         
         dateFormatter.dateFormat = "E, dd/MMM/yyyy hh:mm a"
+        
+        if getCurrentLanguage() == .ar {
+            dateFormatter.locale = Locale(identifier: "ar-EG")
+        }else{
+            dateFormatter.locale = Locale(identifier: "en_US")
+        }
+        
         tweet.tweetTiming = dateFormatter.string(from: oldDate)
         
         return tweet
