@@ -99,10 +99,10 @@ class HomeViewController: BaseViewController {
     func setupNavigationBarItems()  {
         let logOutButton = UIBarButtonItem(image: UIImage(named:"ico_logout"), style: .plain, target: self, action: #selector(HomeViewController.logout(_:)))
         self.navigationItem.leftBarButtonItem = logOutButton
-
+        
         let changeLanguageButton = UIBarButtonItem(image: UIImage(named:"settings"), style: .plain, target: self, action: #selector(HomeViewController.changeLanguage(_:)))
         self.navigationItem.rightBarButtonItem = changeLanguageButton
-
+        
         currentAccountButton = UIButton(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width , height: 44))
         currentAccountButton?.setTitleColor(.white, for: .normal)
         currentAccountButton?.setTitle("@" + (appUser?.userScreenName)!, for: .normal)
@@ -121,7 +121,11 @@ class HomeViewController: BaseViewController {
                     return
                 }
                 self.deviceTwitterAccounts = self.accountStore.accounts(with: accountType) as! [ACAccount]
-                self.showAccountsList()
+                if self.deviceTwitterAccounts.count > 0{
+                    self.showAccountsList()
+                }else{
+                    alertWithTitleInViewController(self, title: "Alert".localized(), message: "No twitter accounts saved on the device please save one in the device settings first".localized())
+                }
             }
         }
         self.accountStore.requestAccessToAccounts(with: accountType, options: nil, completion: accountStoreRequestCompletionHandler)
@@ -145,6 +149,7 @@ class HomeViewController: BaseViewController {
     }
     
     func SwitchAccount(_ index: Int) {
+        
         twitterClient = STTwitterAPI.twitterAPIOS(with: self.deviceTwitterAccounts[index], delegate: self)
         twitterClient.verifyCredentials(userSuccessBlock: { (screenName, userID) in
             self.followersCurrentPage = "-1"
@@ -164,7 +169,7 @@ class HomeViewController: BaseViewController {
         let loginVC = LoginViewController.instance()
         replaceCurrentVisableViewControllerWithViewController(viewController: loginVC)
     }
-
+    
     @objc func changeLanguage(_ sender: UIButton)  {
         let languages = ["العربية","English"]
         let langDic = ["ar","en"]
@@ -189,9 +194,9 @@ class HomeViewController: BaseViewController {
         }, cancel: { (picker) in
             
         }, origin: self.view)
-
+        
     }
-
+    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         if UIDevice.current.orientation.isLandscape {
             self.currentOriantation = .LandScape
